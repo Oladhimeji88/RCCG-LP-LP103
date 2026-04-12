@@ -10,8 +10,8 @@ export function BranchesPage() {
         <div className="page-shell grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <SectionHeading
             eyebrow="Our Branches"
-            title="Gather with The Bridge in Lagos, Somolu, Yaba, and beyond."
-            description="We’d love to welcome you in person. Find the expression of The Bridge nearest to you and join the family."
+            title="Gather with LP 103 in Lagos, Somolu, Yaba, and beyond."
+            description="We’d love to welcome you in person. Find the expression of LP 103 nearest to you and join the family."
             action={
               <ButtonLink
                 iconSrc={asset('/icons/arrow-icon-9.svg')}

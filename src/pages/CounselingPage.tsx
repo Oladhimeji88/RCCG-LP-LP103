@@ -55,7 +55,7 @@ export function CounselingPage() {
             <SectionHeading
               eyebrow="Counseling"
               title="You do not have to walk through hard seasons alone."
-              description="Province 103 Youth, The Bridge offers a caring environment where people can be heard, supported, prayed with, and guided with wisdom."
+              description="Province 103 Youth, LP 103 offers a caring environment where people can be heard, supported, prayed with, and guided with wisdom."
             />
 
             <div className="flex flex-wrap gap-4">

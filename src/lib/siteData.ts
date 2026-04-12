@@ -119,7 +119,7 @@ export const services: Service[] = [
   },
   {
     title: 'Sunday Service',
-    description: "At The Bridge, Sunday isn't just a routine...",
+    description: "At LP 103, Sunday isn't just a routine...",
     schedule: 'Every Sunday • 8:00 AM',
     location: 'Lagos Airport Hotel, Ikeja, Lagos',
     image:
@@ -127,7 +127,7 @@ export const services: Service[] = [
   },
   {
     title: 'Midweek Service',
-    description: 'Midweek at The Bridge is your spiritual pit stop...',
+    description: 'Midweek at LP 103 is your spiritual pit stop...',
     schedule: 'Every Wednesday • 6:00 PM - 7:30PM',
     location: 'Lagos Airport Hotel, Ikeja, Lagos',
     image:
@@ -189,7 +189,7 @@ export const sundaySermons: SermonCard[] = [
     title: 'Second Sunday Service',
     date: 'July 27, 2025',
     description:
-      'Every Power Service at The Bridge, we experience changes in paradigms and realities. It’s never just a service, but a portal through which we enter new seasons.',
+      'Every Power Service at LP 103, we experience changes in paradigms and realities. It’s never just a service, but a portal through which we enter new seasons.',
     image:
       'https://res.cloudinary.com/ducds3dmu/image/upload/v1757115794/xwj88efa2wd56exhf2p1.png',
   },
@@ -352,7 +352,7 @@ export const branches: Branch[] = [
   },
   {
     id: 4,
-    name: 'RCCG The Bridge (Paris)',
+    name: 'RCCG LP 103 (Paris)',
     address: '1 Place Martin Levasseur, 93400 Saint-Ouen-sur-Seine',
     details: 'Sunday Services 9AM',
   },

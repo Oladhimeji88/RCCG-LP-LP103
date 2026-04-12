@@ -43,7 +43,7 @@ export function AboutPage() {
 
           <div className="space-y-8">
             <SectionHeading
-              eyebrow="About The Bridge"
+              eyebrow="About LP 103"
               title="We exist to raise a generation that bridges gaps in society by redirecting hearts back to God."
               description="By connecting the Word to the world, we see transformed lives, stronger families, and communities renewed in Christ."
             />
@@ -97,7 +97,7 @@ export function AboutPage() {
 
             <div className="overflow-hidden rounded-[2rem] shadow-soft">
               <img
-                alt="The Bridge community"
+                alt="LP 103 community"
                 className="h-full min-h-[20rem] w-full object-cover"
                 src={asset('/gallery/bridge1.png')}
               />
@@ -146,7 +146,7 @@ export function AboutPage() {
 
                 <div className="overflow-hidden rounded-[2rem]">
                   <img
-                    alt={`RCCG The Bridge history from ${selectedHistory.year}`}
+                    alt={`RCCG LP 103 history from ${selectedHistory.year}`}
                     className="h-full min-h-[18rem] w-full object-cover"
                     src={selectedHistory.image}
                   />
@@ -162,7 +162,7 @@ export function AboutPage() {
           <SectionHeading
             align="center"
             title="Our Leadership"
-            description="Meet the pastors stewarding the vision of Province 103 Youth, The Bridge."
+            description="Meet the pastors stewarding the vision of Province 103 Youth, LP 103."
           />
 
           <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
@@ -237,7 +237,7 @@ export function AboutPage() {
               Join The Community
             </p>
             <h2 className="text-3xl font-semibold leading-tight">
-              Ready to call The Bridge home?
+              Ready to call LP 103 home?
             </h2>
           </div>
 

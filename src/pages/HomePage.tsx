@@ -52,7 +52,7 @@ function HeroSection() {
       <div className="page-shell relative flex min-h-screen items-center justify-center py-32 text-center">
         <div className="space-y-6">
           <p className="text-sm font-semibold uppercase tracking-[0.34em] text-white/70">
-            PROVINCE 103 YOUTH, THE BRIDGE
+            PROVINCE 103 YOUTH, LP 103
           </p>
           <h1 className="mx-auto max-w-5xl text-4xl font-black uppercase leading-[0.95] sm:text-6xl lg:text-7xl">
             {homeHeroPhrases[activePhrase]}
@@ -124,7 +124,7 @@ function LivestreamSection() {
                 allow="autoplay; encrypted-media; picture-in-picture"
                 className="aspect-video w-full"
                 src={livestream.embedUrl}
-                title="RCCG The Bridge livestream"
+                title="RCCG LP 103 livestream"
               />
             </div>
           </div>
@@ -329,7 +329,7 @@ function CounselingSection() {
               <SectionHeading
                 invert
                 title="Our mission is soul care"
-                description="At Province 103 Youth, The Bridge, we believe that no one should walk alone through lifeâ€™s challenges. Our dedicated counselling ministry is here to offer a listening ear, prayerful support, and biblical guidance in times of need."
+                description="At Province 103 Youth, LP 103, we believe that no one should walk alone through lifeâ€™s challenges. Our dedicated counselling ministry is here to offer a listening ear, prayerful support, and biblical guidance in times of need."
               />
 
               <ButtonLink
@@ -343,7 +343,7 @@ function CounselingSection() {
 
             <div className="overflow-hidden rounded-[2rem] shadow-2xl shadow-black/30">
               <img
-                alt="The Bridge vision"
+                alt="LP 103 vision"
                 className="h-full min-h-[18rem] w-full object-cover"
                 src={asset('/images/vision.jpg')}
               />

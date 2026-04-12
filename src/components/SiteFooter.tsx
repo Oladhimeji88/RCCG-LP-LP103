@@ -15,12 +15,12 @@ export function SiteFooter() {
       <div className="page-shell relative grid gap-12 py-16 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
         <div className="space-y-6">
           <img
-            alt="Province 103 Youth, The Bridge logo"
+            alt="Province 103 Youth, LP 103 logo"
             className="h-20 w-auto"
             src="/brand/rccg-logo.png"
           />
           <p className="max-w-md text-lg leading-8 text-white/75">
-            Province 103 Youth, The Bridge is a faith-driven community
+            Province 103 Youth, LP 103 is a faith-driven community
             connecting the Word to the world through worship, service, and
             discipleship.
           </p>
@@ -31,7 +31,7 @@ export function SiteFooter() {
             <h3 className="text-3xl font-medium leading-tight">
               This is not just church.
               <br />
-              This is The Bridge.
+              This is LP 103.
               <br />
               This is home.
             </h3>
