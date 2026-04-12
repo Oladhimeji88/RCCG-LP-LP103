@@ -80,17 +80,13 @@ export const navItems: NavItem[] = [
   { label: 'Connect', href: '/connect' },
   { label: 'Zones', href: '/branches' },
   { label: 'About Us', href: '/about' },
-  {
-    label: 'Counseling',
-    href: 'https://counseling.rccgthebridge.com/',
-    external: true,
-  },
+  { label: 'Counseling', href: '/counseling' },
 ]
 
 export const ctaLinks = {
   giving: '/giving',
   watchLive: 'https://www.youtube.com/channel/UCcar23Or-AmJIGZZTEZZS1A',
-  counseling: 'https://counseling.rccgthebridge.com/',
+  counseling: '/counseling',
   spotifyShow: 'https://open.spotify.com/show/7km452Z7IIKxa2sbYDfKng',
   youtubeChannel: 'https://www.youtube.com/@rccgthebridge',
 }

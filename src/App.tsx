@@ -5,6 +5,7 @@ import { ScrollToTop } from './components/ScrollToTop'
 import { AboutPage } from './pages/AboutPage'
 import { BranchesPage } from './pages/BranchesPage'
 import { ConnectPage } from './pages/ConnectPage'
+import { CounselingPage } from './pages/CounselingPage'
 import { DepartmentsPage } from './pages/DepartmentsPage'
 import { GivingPage } from './pages/GivingPage'
 import { HomePage } from './pages/HomePage'
@@ -20,6 +21,8 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/branches" element={<BranchesPage />} />
           <Route path="/connect" element={<ConnectPage />} />
+          <Route path="/counseling" element={<CounselingPage />} />
+          <Route path="/counselling" element={<CounselingPage />} />
           <Route path="/giving" element={<GivingPage />} />
           <Route path="/department" element={<DepartmentsPage />} />
         </Routes>
