@@ -1,4 +1,4 @@
-import { asset, footerContacts, socialLinks } from '../lib/siteData'
+import { asset, footerContacts, quickLinks } from '../lib/siteData'
 
 export function SiteFooter() {
   return (
@@ -20,9 +20,9 @@ export function SiteFooter() {
             src="/brand/rccg-logo.png"
           />
           <p className="max-w-md text-lg leading-8 text-white/75">
-            Province 103 Youth, LP 103 is a faith-driven community
-            connecting the Word to the world through worship, service, and
-            discipleship.
+            Province 103 Youth, LP 103 is a youth-focused community rooted in
+            the wider RCCG mission, shaped by prayer, discipleship, service,
+            and witness.
           </p>
         </div>
 
@@ -46,16 +46,16 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div className="flex items-center gap-4 md:justify-end">
-            {socialLinks.map((item) => (
+          <div className="grid gap-3 md:justify-items-end">
+            {quickLinks.map((item) => (
               <a
-                className="rounded-full border border-white/15 bg-white/5 p-3 transition hover:-translate-y-0.5 hover:bg-white/10"
+                className="inline-flex min-w-[12rem] items-center justify-center rounded-[3px] border border-white/15 bg-white/5 px-4 py-3 text-center text-sm transition hover:-translate-y-0.5 hover:bg-white/10"
                 href={item.href}
                 key={item.label}
                 rel="noreferrer"
                 target="_blank"
               >
-                <img alt={item.label} className="h-5 w-5" src={item.icon} />
+                {item.label}
               </a>
             ))}
           </div>

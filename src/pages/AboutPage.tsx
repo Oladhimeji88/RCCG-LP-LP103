@@ -44,14 +44,17 @@ export function AboutPage() {
           <div className="space-y-8">
             <SectionHeading
               eyebrow="About LP 103"
-              title="We exist to raise a generation that bridges gaps in society by redirecting hearts back to God."
-              description="By connecting the Word to the world, we see transformed lives, stronger families, and communities renewed in Christ."
+              title="LP 103 is a youth-focused expression rooted in the wider RCCG mission."
+              description="Public LP 103 details online are limited, so this site now reflects verified RCCG and RCCG YAYA history, beliefs, leadership, and ministry direction."
             />
 
             <div className="rounded-[3px] border border-slate-200 bg-slate-50 p-6 text-slate-700 shadow-soft">
               <p className="text-lg leading-8">
-                We are a faith-driven community focused on spiritual growth,
-                heartfelt worship, solid teaching, and active discipleship.
+                RCCG publicly teaches salvation in Jesus Christ, the authority of
+                Scripture, the ministry of the Holy Spirit, prayer, holiness,
+                and a life of witness. RCCG YAYA extends that heartbeat into the
+                world of youth and young adults through discipleship, training,
+                collaboration, and community.
               </p>
             </div>
           </div>
@@ -78,19 +81,20 @@ export function AboutPage() {
           <div className="space-y-6">
             <div className="grid gap-6 rounded-[3px] bg-white p-8 shadow-soft">
               <div className="grid gap-3 border-b border-slate-200 pb-6 md:grid-cols-[12rem_1fr]">
-                <h3 className="text-xl font-semibold text-slate-900">Our Mission</h3>
+                <h3 className="text-xl font-semibold text-slate-900">RCCG Mission</h3>
                 <p className="text-lg leading-8 text-slate-700">
-                  To raise a generation that bridges gaps in society by
-                  redirecting hearts back to God.
+                  To make heaven, to take as many people with us as possible,
+                  to live in holiness, and to plant churches in ways that keep
+                  the gospel close to people everywhere.
                 </p>
               </div>
 
               <div className="grid gap-3 md:grid-cols-[12rem_1fr]">
-                <h3 className="text-xl font-semibold text-slate-900">Our Vision</h3>
+                <h3 className="text-xl font-semibold text-slate-900">YAYA Direction</h3>
                 <p className="text-lg leading-8 text-slate-700">
-                  A thriving community of servant-leaders influencing every
-                  sphere, including business, arts, government, and technology,
-                  for His glory.
+                  RCCG YAYA highlights discipleship, prayer, training,
+                  leadership development, collaboration, and even digital church
+                  planting as part of the church&apos;s youth movement.
                 </p>
               </div>
             </div>
@@ -110,8 +114,8 @@ export function AboutPage() {
         <div className="page-shell space-y-10">
           <SectionHeading
             align="center"
-            title="Our History"
-            description="From humble beginnings to a growing community of servant-leaders, every season has deepened our commitment to connect the Word to the world."
+            description="This timeline is based on the public history shared by RCCG, not inherited placeholder content."
+            title="RCCG History"
           />
 
           <div className="rounded-[3px] border border-slate-200 bg-white p-6 shadow-soft sm:p-8">
@@ -161,27 +165,36 @@ export function AboutPage() {
         <div className="page-shell space-y-10">
           <SectionHeading
             align="center"
-            title="Our Leadership"
-            description="Meet the pastors stewarding the vision of Province 103 Youth, LP 103."
+            description="These names come from official RCCG and RCCG YAYA public pages."
+            title="Visible Leadership"
           />
 
           <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
-            {pastorates.map((pastor) => (
-              <article
-                className="rounded-[3px] bg-white p-5 text-center shadow-soft"
-                key={pastor.id}
-              >
-                <img
-                  alt={pastor.name}
-                  className="mx-auto h-72 w-full rounded-[3px] object-cover"
-                  src={pastor.image}
-                />
-                <div className="mt-5 space-y-2">
-                  <h3 className="text-xl font-semibold text-slate-900">{pastor.name}</h3>
-                  <p className="text-slate-600">{pastor.position}</p>
-                </div>
-              </article>
-            ))}
+            {pastorates.map((pastor) => {
+              const isLogoCard = pastor.image.includes('/brand/')
+
+              return (
+                <article
+                  className="rounded-[3px] bg-white p-5 text-center shadow-soft"
+                  key={pastor.id}
+                >
+                  <img
+                    alt={pastor.name}
+                    className={cn(
+                      'mx-auto h-72 w-full rounded-[3px]',
+                      isLogoCard
+                        ? 'bg-stone-50 object-contain p-8'
+                        : 'object-cover',
+                    )}
+                    src={pastor.image}
+                  />
+                  <div className="mt-5 space-y-2">
+                    <h3 className="text-xl font-semibold text-slate-900">{pastor.name}</h3>
+                    <p className="text-slate-600">{pastor.position}</p>
+                  </div>
+                </article>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -189,16 +202,16 @@ export function AboutPage() {
       <section className="section-space">
         <div className="page-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <SectionHeading
-            title="Departments & Ministries"
-            description="There’s room for you here to serve, lead, and grow in purpose. Our departments are more than teams. They’re families on assignment."
             action={
               <ButtonLink
                 iconSrc={asset('/icons/arrow-icon-9.svg')}
                 to="/department"
               >
-                Go to Departments
+                Explore Service Areas
               </ButtonLink>
             }
+            description="These ministry expressions are written for LP 103 using verified RCCG and YAYA themes, not copied local department lists."
+            title="Ministry Expressions"
           />
 
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -209,7 +222,7 @@ export function AboutPage() {
               >
                 <img
                   alt={department.leader.name}
-                  className="mb-4 h-40 w-full rounded-[3px] object-cover"
+                  className="mb-4 h-40 w-full rounded-[3px] bg-stone-50 object-contain p-6"
                   src={department.leader.image}
                 />
                 <p className="text-sm font-semibold uppercase tracking-[0.18em] text-bridge-orange">
@@ -218,11 +231,11 @@ export function AboutPage() {
                 <h3 className="mt-2 text-xl font-semibold text-slate-900">
                   {department.name}
                 </h3>
-                <p className="mt-3 line-clamp-3 text-sm leading-7 text-slate-600">
+                <p className="mt-3 line-clamp-4 text-sm leading-7 text-slate-600">
                   {department.description}
                 </p>
                 <p className="mt-4 text-sm font-medium text-slate-700">
-                  {department.leader.name}
+                  {department.leader.position}
                 </p>
               </article>
             ))}
@@ -237,7 +250,7 @@ export function AboutPage() {
               Join The Community
             </p>
             <h2 className="text-3xl font-semibold leading-tight">
-              Ready to call LP 103 home?
+              Ready to find your place in LP 103?
             </h2>
           </div>
 
@@ -253,7 +266,7 @@ export function AboutPage() {
               className="btn-secondary justify-center"
               to="/branches"
             >
-              Explore Branches
+              Explore Zones
             </Link>
           </div>
         </div>

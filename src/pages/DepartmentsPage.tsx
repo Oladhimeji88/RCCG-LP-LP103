@@ -21,9 +21,9 @@ export function DepartmentsPage() {
         <div className="page-shell space-y-12">
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <SectionHeading
-              eyebrow="Departments"
-              title="Empowering lives through dedicated departments."
-              description="There’s room for you here to serve, lead, and grow in purpose. Our departments are more than teams. They’re families on assignment."
+              eyebrow="Service Areas"
+              title="Ministry expressions shaped by RCCG and YAYA."
+              description="This page replaces copied local department listings with ministry areas grounded in official RCCG beliefs, youth discipleship, prayer, outreach, and service."
             />
 
             <div className="grid grid-cols-2 gap-4">
@@ -96,11 +96,11 @@ export function DepartmentsPage() {
                           {department.name}
                         </p>
                         <p className="mt-1 text-sm text-slate-500">
-                          Led by {department.leader.name}
+                          {department.leader.position}
                         </p>
                       </div>
                       <span className="text-2xl font-light text-slate-400">
-                        {expanded ? '−' : '+'}
+                        {expanded ? '-' : '+'}
                       </span>
                     </button>
 
@@ -110,7 +110,7 @@ export function DepartmentsPage() {
                         <div className="flex items-center gap-4 sm:flex-col sm:text-right">
                           <img
                             alt={department.leader.name}
-                            className="h-20 w-20 rounded-full object-cover"
+                            className="h-20 w-20 rounded-full bg-stone-50 object-contain p-3"
                             src={department.leader.image}
                           />
                           <div>

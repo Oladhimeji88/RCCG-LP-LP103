@@ -15,16 +15,18 @@ export type Service = {
 export type AudioSermon = {
   id: number
   name: string
-  date: string
+  source: string
+  description: string
   link: string
 }
 
 export type SermonCard = {
   id: number
   title: string
-  date: string
+  label: string
   description: string
   image: string
+  link: string
 }
 
 export type HistoryEntry = {
@@ -60,19 +62,24 @@ export type Branch = {
   details: string
 }
 
-export type GivingAccount = {
-  id: number
-  name: string
-  bank: string
-  accountNumber: string
+export type QuickLink = {
+  label: string
+  href: string
+  description: string
 }
 
-export type GivingCategory = {
-  name: string
-  accounts: GivingAccount[]
+export type GivingOption = {
+  id: number
+  title: string
+  detail: string
+  note: string
+  href: string
+  cta: string
 }
 
 const siteAssetBase = 'https://www.rccgthebridge.com'
+export const lp103Address =
+  '11 Odu Onikosi Avenue, opposite LASUED, Otto Awori, Lagos State'
 
 export const asset = (path: string) => `${siteAssetBase}${path}`
 
@@ -85,51 +92,61 @@ export const navItems: NavItem[] = [
 
 export const ctaLinks = {
   giving: '/giving',
-  watchLive: 'https://www.youtube.com/channel/UCcar23Or-AmJIGZZTEZZS1A',
+  watchLive: 'https://rccgworld.org/',
   counseling: '/counseling',
-  spotifyShow: 'https://open.spotify.com/show/7km452Z7IIKxa2sbYDfKng',
-  youtubeChannel: 'https://www.youtube.com/@rccgthebridge',
+  rccgHome: 'https://www.rccg.org/',
+  missionVision: 'https://www.rccg.org/mission-and-vision/',
+  beliefs: 'https://www.rccg.org/our-beliefs/',
+  history: 'https://www.rccg.org/our-history/',
+  goLifestyle: 'https://go.rccg.org/',
+  yayaGlobal: 'https://rccgyayaglobal.org/',
+  yayaPrayer: 'https://rccgyayaglobal.org/prayer',
+  yayaCounsel: 'https://rccgyayaglobal.org/counsel',
+  onlineGiving: 'https://rccgpayments.trccg.org/',
+  youtubeChannel: 'https://www.youtube.com/@RCCG-1',
 }
 
 export const homeHeroPhrases = [
-  'Connecting the Word to the world',
-  'Connect to Collect',
-  'NIBI NI JESU WA',
-  'WELCOME YOUR EXCELLENCY',
+  'To Make Heaven',
+  'Take Many With Us',
+  'Holiness Our Lifestyle',
+  'Become A Witness',
 ]
 
 export const livestream = {
   previewImage: asset('/livescream/livestream.png'),
-  title: 'LIVE STREAM SERVICE',
-  serviceLabel: 'Sunday Service',
-  serviceName: 'Thankgiving Service',
-  date: 'Nov 1, 2025 • 8:00 AM',
-  embedUrl:
-    'https://www.youtube.com/embed/jEOExsOvtSA?si=RLcr98Hg-hb_KIkA&autoplay=1&rel=0&modestbranding=1',
+  title: 'WATCH RCCG LIVE',
+  serviceLabel: 'Official RCCG broadcast',
+  serviceName: 'Streams, congresses and special services',
+  subtitle:
+    'Follow official RCCG and YAYA channels for current live services, congresses, and youth-focused gatherings.',
 }
 
 export const services: Service[] = [
   {
-    title: 'Sunday School',
-    description: 'Guided by the RCCG Sunday School Manual...',
-    schedule: 'Every Sunday • 7:30 AM',
-    location: 'Lagos Airport Hotel, Ikeja, Lagos',
+    title: 'Bible Teaching',
+    description:
+      'RCCG teaches that the Scriptures were written by holy men as they were inspired by the Holy Spirit, so LP 103 gives the Word a central place in every gathering.',
+    schedule: 'Weekly study rhythms',
+    location: lp103Address,
     image:
       'https://res.cloudinary.com/ducds3dmu/image/upload/v1757115358/udxz9bnwqj2tftp7ttnd.jpg',
   },
   {
-    title: 'Sunday Service',
-    description: "At LP 103, Sunday isn't just a routine...",
-    schedule: 'Every Sunday • 8:00 AM',
-    location: 'Lagos Airport Hotel, Ikeja, Lagos',
+    title: 'Prayer and Holiness',
+    description:
+      'The RCCG mission calls believers to live in holiness and carry God\'s presence everywhere, so prayer remains one of the strongest cultures shaping LP 103.',
+    schedule: 'Weekly prayer gatherings and special prayer calls',
+    location: lp103Address,
     image:
       'https://res.cloudinary.com/ducds3dmu/image/upload/v1757115383/mmzxfpzq6zx5qiidap8i.jpg',
   },
   {
-    title: 'Midweek Service',
-    description: 'Midweek at LP 103 is your spiritual pit stop...',
-    schedule: 'Every Wednesday • 6:00 PM - 7:30PM',
-    location: 'Lagos Airport Hotel, Ikeja, Lagos',
+    title: 'Witness and Outreach',
+    description:
+      'From Go A Fishing to Vision 2032, RCCG keeps evangelism at the center. LP 103 exists to raise young believers who live and speak the gospel boldly.',
+    schedule: 'Seasonal outreaches and community action',
+    location: lp103Address,
     image:
       'https://res.cloudinary.com/ducds3dmu/image/upload/v1757115413/svfx1nqtxo5qmgqwbsjf.jpg',
   },
@@ -137,105 +154,97 @@ export const services: Service[] = [
 
 export const audioSermons: AudioSermon[] = [
   {
-    id: 7,
-    name: 'CONTENDING FOR THE FAITH OF THE FATHERS',
-    date: '2025-09-01',
-    link: 'https://open.spotify.com/episode/5wrEJjySJD3cyiifk9B4YI',
-  },
-  {
-    id: 6,
-    name: 'THE MANDATE TO TAKE GOSPEL EVERYWHERE',
-    date: '2025-09-01',
-    link: 'https://open.spotify.com/episode/0jNozikoWlRVEDbkwAwM0X?si=NZBQwErqRs-7L4-fqR0cDA',
-  },
-  {
-    id: 5,
-    name: 'A WINNING MENTALITY',
-    date: '2025-09-09',
-    link: 'https://open.spotify.com/episode/5WLUOCZAIzGQyBX98fcTSZ?si=7c5rQ6lnSMKWHFHv84G-EA',
-  },
-  {
-    id: 4,
-    name: 'SPIRITUAL INTELLEGENCE',
-    date: '2025-09-15',
-    link: 'https://open.spotify.com/episode/6FtANP6dJBYOFejbJOHTKW?si=THFefvgRQQ2rocJuwiaaxA',
-  },
-  {
-    id: 3,
-    name: 'SPIRITUAL HALFTIME',
-    date: '2025-09-22',
-    link: 'https://open.spotify.com/episode/1YLJPEtENzbW9tfnfATbGZ?si=_JWo5PixSJuWxcHKF0i8fw',
+    id: 1,
+    name: 'RCCG Mission and Vision',
+    source: 'Official RCCG',
+    description:
+      'See the church\'s core mission points around heaven, discipleship, holiness, and church planting.',
+    link: ctaLinks.missionVision,
   },
   {
     id: 2,
-    name: 'THE NEW SEASON PRAYER & SERMON',
-    date: '2025-09-29',
-    link: 'https://open.spotify.com/episode/2CVj3ZIeGpfnzw0afyc2Hs?si=o22o8IVnQnudDJ0W4dTsUA',
+    name: 'RCCG Statement of Belief',
+    source: 'Official RCCG',
+    description:
+      'Review the church\'s public teaching on Scripture, salvation, the Holy Spirit, prayer, and Christian living.',
+    link: ctaLinks.beliefs,
+  },
+  {
+    id: 3,
+    name: 'RCCG YAYA Global',
+    source: 'Official RCCG YAYA',
+    description:
+      'Explore youth and young adult discipleship, prayer, training, and community from the official YAYA platform.',
+    link: ctaLinks.yayaGlobal,
   },
 ]
 
 export const sundaySermons: SermonCard[] = [
   {
-    id: 6,
-    title: 'First Sunday School',
-    date: 'July 20, 2025',
+    id: 1,
+    title: 'Born in 1952',
+    label: 'Our history',
     description:
-      'We are called not just to steward God’s presence, but to influence systems and structures of this world for God’s glory, according to His patterns.',
-    image:
-      'https://res.cloudinary.com/ducds3dmu/image/upload/v1757115688/ifcxxwdrjcx7lpghtnf0.png',
+      'RCCG began in Lagos in 1952 under Pa Josiah Akindayomi and has grown into a worldwide movement of churches and ministries.',
+    image: asset('/gallery/bridge1.png'),
+    link: ctaLinks.history,
   },
   {
-    id: 7,
-    title: 'Second Sunday Service',
-    date: 'July 27, 2025',
+    id: 2,
+    title: '50,000+ Parishes',
+    label: 'Global footprint',
     description:
-      'Every Power Service at LP 103, we experience changes in paradigms and realities. It’s never just a service, but a portal through which we enter new seasons.',
-    image:
-      'https://res.cloudinary.com/ducds3dmu/image/upload/v1757115794/xwj88efa2wd56exhf2p1.png',
+      'RCCG says the church now serves more than 50,000 parishes across 197 countries and territories.',
+    image: asset('/gallery/bridge2.png'),
+    link: ctaLinks.rccgHome,
   },
   {
-    id: 8,
-    title: 'Third Sunday Service',
-    date: 'August 04, 2025',
+    id: 3,
+    title: 'Youth and Young Adults',
+    label: 'YAYA Global',
     description:
-      'This isn’t just another service, it’s a divine appointment to say “Thank You” for the seen and unseen, for the victories, the valleys, and the waiting rooms.',
-    image:
-      'https://res.cloudinary.com/ducds3dmu/image/upload/v1757115875/scl6zkozzpqabcq8mtcd.png',
+      'RCCG YAYA focuses on discipleship, prayer, training, collaboration, and leadership development for young adults and youth.',
+    image: asset('/gallery/bridge3.png'),
+    link: ctaLinks.yayaGlobal,
   },
   {
-    id: 9,
-    title: 'Fourth Sunday Service',
-    date: 'August 10, 2025',
+    id: 4,
+    title: 'Vision 2032',
+    label: 'Evangelism',
     description:
-      'Becoming an OVERCOMER is one thing, remaining in that state is another thing entirely.',
-    image:
-      'https://res.cloudinary.com/ducds3dmu/image/upload/v1757116132/rizok7v0z2pthidjew4c.png',
+      'The Go A Fishing emphasis and Vision 2032 call believers to become intentional witnesses who reach souls everywhere.',
+    image: asset('/gallery/bridge4.png'),
+    link: ctaLinks.goLifestyle,
   },
 ]
 
 export const historyEntries: HistoryEntry[] = [
   {
     id: 1,
-    year: '2021',
-    text: 'We began with a small team committed to transforming lives through faith and leadership.',
+    year: '1952',
+    text:
+      'RCCG began as the Glory of God Fellowship in Ebute-Metta, Lagos, and soon became The Redeemed Christian Church of God.',
     image: asset('/gallery/bridge1.png'),
   },
   {
     id: 2,
-    year: '2022',
-    text: 'Our outreach expanded to multiple cities, bridging new communities together.',
+    year: '1973',
+    text:
+      'Pastor E.A. Adeboye joined the church as a young university lecturer, marking the beginning of a new chapter in its expansion.',
     image: asset('/gallery/bridge2.png'),
   },
   {
     id: 3,
-    year: '2023',
-    text: 'We embraced digital platforms to extend our mission globally.',
+    year: '1981',
+    text:
+      'Pastor E.A. Adeboye became General Overseer, and the church entered a season of rapid local and global growth.',
     image: asset('/gallery/bridge3.png'),
   },
   {
     id: 4,
-    year: '2024',
-    text: 'A community of servant-leaders emerged, now influencing every sector of society.',
+    year: 'Today',
+    text:
+      'RCCG reports more than 50,000 parishes in 197 countries and territories, with youth movements like YAYA mobilizing discipleship and outreach across generations.',
     image: asset('/gallery/bridge4.png'),
   },
 ]
@@ -243,83 +252,95 @@ export const historyEntries: HistoryEntry[] = [
 export const pastorates: Pastor[] = [
   {
     id: 1,
-    name: 'Pastor Oluwafemi Oyewunmi',
-    position: 'Lead Pastor',
-    image:
-      'https://res.cloudinary.com/ducds3dmu/image/upload/v1757117102/iual2aa5iuydze23ambp.png',
+    name: 'Pastor E.A. Adeboye',
+    position: 'General Overseer, RCCG Worldwide',
+    image: '/brand/rccg-logo.png',
   },
   {
     id: 2,
-    name: 'Pastor (Mrs) Life Oyewunmi',
-    position: 'Assistant Pastor',
-    image:
-      'https://res.cloudinary.com/ducds3dmu/image/upload/v1757117120/echibo61rai16bmhkzhu.png',
+    name: 'Pastor Babasola Olukoya',
+    position: 'Pastor in Charge, Young Adults and Youth Affairs',
+    image: 'https://rccgyayaglobal.org/images/leaders/iyp.jpeg',
   },
   {
     id: 3,
-    name: 'Pastor Olushola Oladejo',
-    position: 'Assistant Pastor',
-    image:
-      'https://res.cloudinary.com/ducds3dmu/image/upload/v1757117134/d1pytirzwh7mwtycyni6.jpg',
-  },
-  {
-    id: 4,
-    name: 'Pastor (Mrs) Aderayo Oladejo',
-    position: 'Assistant Pastor',
-    image:
-      'https://res.cloudinary.com/ducds3dmu/image/upload/v1757117148/oa5xazxvioqx2qao9w40.jpg',
-  },
-  {
-    id: 5,
-    name: 'Pastor Bolaji Asifat',
-    position: 'Associate Pastor',
-    image:
-      'https://res.cloudinary.com/ducds3dmu/image/upload/v1757117163/olyai2xrwbjxwg0gdjco.png',
-  },
-  {
-    id: 6,
-    name: 'Pastor (Mrs) Asifat',
-    position: 'Associate Pastor',
-    image:
-      'https://res.cloudinary.com/ducds3dmu/image/upload/v1757117175/teihpssacu7pifu75fno.jpg',
+    name: 'Pastor Sola Akinbile',
+    position: 'Assistant Pastor in Charge, Young Adults and Youth Affairs',
+    image: 'https://rccgyayaglobal.org/images/leaders/sola.jpeg',
   },
 ]
 
 export const departments: Department[] = [
   {
     id: 1,
-    name: 'Sunday School',
-    description: 'This is a department that handles sunday school.',
-    type: 'Training',
+    name: 'Discipleship and Bible Study',
+    description:
+      'Spaces for Scripture, doctrine, and steady spiritual growth grounded in the public beliefs of RCCG.',
+    type: 'Formation',
     leader: {
-      name: 'Dns Anuoluwapo',
-      position: 'HOD Sunday School',
-      image:
-        'https://res.cloudinary.com/ducds3dmu/image/upload/v1756931970/gzrpwumgs6pg3esb0rad.png',
+      name: 'LP 103 Team',
+      position: 'Bible and discipleship leads',
+      image: '/brand/rccg-logo.png',
     },
   },
   {
     id: 2,
-    name: 'Workers in Training / Believers Class',
-    description: 'The unit administers the workers in training programme.',
-    type: 'Training',
+    name: 'Prayer and Counseling',
+    description:
+      'Prayer support, counseling, and compassionate follow-up for real-life seasons that require wisdom, healing, and care.',
+    type: 'Care',
     leader: {
-      name: 'Dns Oluwatobiloba O',
-      position: 'HOD Trainings',
-      image:
-        'https://res.cloudinary.com/ducds3dmu/image/upload/v1756932072/dn8gdzrf7icje0iswray.png',
+      name: 'LP 103 Team',
+      position: 'Prayer and care coordinators',
+      image: '/brand/rccg-logo.png',
     },
   },
   {
     id: 3,
-    name: 'School of Disciples (SOD)',
-    description: 'Administers the School of Disciples programme.',
-    type: 'Training',
+    name: 'Evangelism and Outreach',
+    description:
+      'Community action, witness, and soul-winning aligned with the Go A Fishing mandate and Vision 2032 emphasis.',
+    type: 'Mission',
     leader: {
-      name: 'Dns Oluwatobiloba O',
-      position: 'HOD Trainings',
-      image:
-        'https://res.cloudinary.com/ducds3dmu/image/upload/v1756932072/dn8gdzrf7icje0iswray.png',
+      name: 'LP 103 Team',
+      position: 'Outreach coordinators',
+      image: '/brand/rccg-logo.png',
+    },
+  },
+  {
+    id: 4,
+    name: 'Creative and Media',
+    description:
+      'Music, media, storytelling, and digital expression that help the gospel travel well across physical and online spaces.',
+    type: 'Service',
+    leader: {
+      name: 'LP 103 Team',
+      position: 'Creative and media coordinators',
+      image: '/brand/rccg-logo.png',
+    },
+  },
+  {
+    id: 5,
+    name: 'Training and Capacity Building',
+    description:
+      'Leadership growth, mentoring, and practical training opportunities for young believers preparing to serve well.',
+    type: 'Formation',
+    leader: {
+      name: 'LP 103 Team',
+      position: 'Training and mentoring leads',
+      image: '/brand/rccg-logo.png',
+    },
+  },
+  {
+    id: 6,
+    name: 'Events and Fellowship',
+    description:
+      'Gatherings that strengthen belonging, collaboration, and healthy Christian community among youth and young adults.',
+    type: 'Community',
+    leader: {
+      name: 'LP 103 Team',
+      position: 'Fellowship coordinators',
+      image: '/brand/rccg-logo.png',
     },
   },
 ]
@@ -334,95 +355,64 @@ export const departmentShowcaseImages = [
 export const branches: Branch[] = [
   {
     id: 1,
-    name: 'Main Branch',
-    address: 'Lagos Airport Hotel, Ikeja, Lagos',
-    details: 'Sunday Services 9AM',
+    name: 'Main Venue',
+    address: lp103Address,
+    details: 'Use the Connect page for the latest service times and zone details.',
   },
   {
     id: 2,
-    name: 'The Solution Centre (Yaba)',
-    address: '69 Ikorodu Rd, Fadeyi, Lagos 102215, Lagos',
-    details: 'Thursdays: 6:00pm and Sundays: 2:30pm',
+    name: 'Nearest RCCG Parish',
+    address:
+      'RCCG says the church now has more than 50,000 parishes across 197 countries and territories.',
+    details: 'Start with the official RCCG website for broader parish information.',
   },
   {
     id: 3,
-    name: 'The City of God’s Delight (Somolu)',
-    address: 'The Mine Studios, 40 Fola-Agoro, Somolu, Lagos',
-    details: 'Thursdays: 6:00pm and Sundays: 2:30pm',
+    name: 'YAYA Global Community',
+    address:
+      'RCCG YAYA Global provides prayer, youth discipleship, and connection opportunities online.',
+    details: 'Join youth-focused community while you connect locally.',
   },
   {
     id: 4,
-    name: 'RCCG LP 103 (Paris)',
-    address: '1 Place Martin Levasseur, 93400 Saint-Ouen-sur-Seine',
-    details: 'Sunday Services 9AM',
+    name: 'Counseling and Care',
+    address:
+      'LP 103 can walk with you through prayer needs, counseling, and your next practical step.',
+    details: 'Reach out through the connect page or by email.',
   },
 ]
 
-export const givingCategories: GivingCategory[] = [
+export const givingOptions: GivingOption[] = [
   {
-    name: 'Offering',
-    accounts: [
-      {
-        id: 1,
-        name: 'Access Bank',
-        accountNumber: '1625197566',
-        bank: 'RCCG LP 103',
-      },
-      {
-        id: 5,
-        name: 'Premium Trust Bank',
-        accountNumber: '0040086345',
-        bank: 'RCCG LP 103',
-      },
-      {
-        id: 6,
-        name: 'Access Bank (USD)',
-        accountNumber: '1507110616',
-        bank: 'RCCG LP 103',
-      },
-    ],
+    id: 1,
+    title: 'LP 103 Giving Details',
+    detail: 'Request the current local giving instructions',
+    note:
+      'Public LP 103 bank details were not available online, so the safest route is to request the latest verified instructions directly from the team.',
+    href: 'mailto:rccglp103yaya@gmail.com',
+    cta: 'Email LP 103',
   },
   {
-    name: 'Tithe',
-    accounts: [
-      {
-        id: 2,
-        name: 'Access Bank',
-        accountNumber: '1625457237',
-        bank: 'RCCG LP 103',
-      },
-    ],
+    id: 2,
+    title: 'RCCG Online Giving',
+    detail: 'Use the official RCCG payments portal',
+    note:
+      'For mission-wide giving, support, and official church donations, use the public RCCG giving page.',
+    href: ctaLinks.onlineGiving,
+    cta: 'Open Giving Portal',
   },
   {
-    name: 'Welfare',
-    accounts: [
-      {
-        id: 4,
-        name: 'Access Bank',
-        accountNumber: '1507110616',
-        bank: 'RCCG LP 103',
-      },
-    ],
-  },
-  {
-    name: 'Project',
-    accounts: [
-      {
-        id: 3,
-        name: 'Access Bank',
-        accountNumber: '1506317164',
-        bank: 'RCCG LP 103',
-      },
-    ],
+    id: 3,
+    title: 'YAYA Global',
+    detail: 'Stay connected with youth-focused programs and updates',
+    note:
+      'RCCG YAYA Global shares youth discipleship, prayer, training, and collaboration opportunities online.',
+    href: ctaLinks.yayaGlobal,
+    cta: 'Visit YAYA Global',
   },
 ]
 
 export const footerContacts = [
-  {
-    label: 'Phone',
-    value: '234-913-422-2220',
-    icon: asset('/icons/phone-icon.svg'),
-  },
   {
     label: 'Email',
     value: 'rccglp103yaya@gmail.com',
@@ -430,31 +420,42 @@ export const footerContacts = [
   },
   {
     label: 'Location',
-    value: 'Lagos Airport Hotel, Ikeja.',
+    value: lp103Address,
     icon: asset('/icons/location-pin-icon.svg'),
+  },
+  {
+    label: 'Support',
+    value: 'Use Connect or Counseling to request current zone and meeting details.',
+    icon: asset('/icons/phone-icon.svg'),
   },
 ]
 
-export const socialLinks = [
+export const quickLinks: QuickLink[] = [
   {
-    label: 'YouTube',
-    href: 'https://youtube.com/@rccgthebridge',
-    icon: asset('/icons/social-icon-1.svg'),
+    label: 'Official RCCG',
+    href: ctaLinks.rccgHome,
+    description: 'Worldwide website and public church information',
   },
   {
-    label: 'Instagram',
-    href: 'https://instagram.com/rccgthebridge',
-    icon: asset('/icons/social-icon-2.svg'),
+    label: 'Watch Live',
+    href: ctaLinks.watchLive,
+    description: 'Streams, broadcasts, and major RCCG events',
   },
   {
-    label: 'Facebook',
-    href: 'https://facebook.com/rccgthebridge',
-    icon: asset('/icons/social-icon-3.svg'),
+    label: 'YAYA Global',
+    href: ctaLinks.yayaGlobal,
+    description: 'Youth and young adult discipleship and community',
+  },
+  {
+    label: 'Online Giving',
+    href: ctaLinks.onlineGiving,
+    description: 'Official RCCG giving portal',
   },
 ]
 
 export const connectOptions = [
-  'Prayer Request',
+  'Find My Zone',
   'Need Counseling',
-  'Join the Community',
+  'Prayer Request',
+  'Serve With LP 103',
 ] as const

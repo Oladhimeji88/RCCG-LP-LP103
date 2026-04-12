@@ -1,6 +1,6 @@
 import { ButtonLink } from '../components/ButtonLink'
 import { SectionHeading } from '../components/SectionHeading'
-import { asset, footerContacts } from '../lib/siteData'
+import { asset, ctaLinks, footerContacts } from '../lib/siteData'
 
 const counselingAreas = [
   {
@@ -45,7 +45,7 @@ const counselingSteps = [
 
 export function CounselingPage() {
   const email = footerContacts.find((item) => item.label === 'Email')?.value ?? ''
-  const phone = footerContacts.find((item) => item.label === 'Phone')?.value ?? ''
+  const support = footerContacts.find((item) => item.label === 'Support')?.value ?? ''
 
   return (
     <main className="bg-white pt-28">
@@ -55,7 +55,7 @@ export function CounselingPage() {
             <SectionHeading
               eyebrow="Counseling"
               title="You do not have to walk through hard seasons alone."
-              description="Province 103 Youth, LP 103 offers a caring environment where people can be heard, supported, prayed with, and guided with wisdom."
+              description="RCCG YAYA reminds young people that it is okay not to have all the answers. LP 103 offers a caring environment where people can be heard, supported, prayed with, and guided with wisdom."
             />
 
             <div className="flex flex-wrap gap-4">
@@ -72,6 +72,14 @@ export function CounselingPage() {
                 variant="secondary"
               >
                 Email Us
+              </ButtonLink>
+              <ButtonLink
+                className="justify-center"
+                external
+                to={ctaLinks.yayaCounsel}
+                variant="secondary"
+              >
+                YAYA Counselor
               </ButtonLink>
             </div>
           </div>
@@ -138,12 +146,12 @@ export function CounselingPage() {
               Ready to speak with someone?
             </h2>
             <p className="max-w-2xl text-lg leading-8 text-white/75">
-              Reach out through the connect page, email us directly, or call for
-              guidance on the next step.
+              Reach out through the connect page, email us directly, or use the
+              wider YAYA counseling route if you need another support option.
             </p>
             <div className="space-y-2 text-white/85">
               <p>{email}</p>
-              <p>{phone}</p>
+              <p>{support}</p>
             </div>
           </div>
 

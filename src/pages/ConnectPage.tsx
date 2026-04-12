@@ -1,6 +1,6 @@
 import type { FormEvent } from 'react'
 import { useEffect, useState } from 'react'
-import { connectOptions, footerContacts, socialLinks } from '../lib/siteData'
+import { connectOptions, footerContacts, quickLinks } from '../lib/siteData'
 
 type ConnectFormState = {
   firstName: string
@@ -49,12 +49,12 @@ export function ConnectPage() {
                 Connect With Us
               </p>
               <h1 className="max-w-xl text-4xl font-semibold leading-tight sm:text-5xl">
-                Have a question, prayer request, or need counseling?
+                Need a zone, prayer support, or counseling?
               </h1>
               <p className="max-w-xl text-lg leading-8 text-white/70">
-                We are a faith-driven community focused on spiritual growth,
-                soul care, and service. Drop us a note and our team will follow
-                up with warmth and discretion.
+                Reach LP 103 for the latest meeting details and next steps. Where
+                public local information is limited, we now point you to verified
+                RCCG and RCCG YAYA resources as well.
               </p>
             </div>
 
@@ -67,16 +67,21 @@ export function ConnectPage() {
               ))}
             </div>
 
-            <div className="flex items-center gap-4">
-              {socialLinks.map((item) => (
+            <div className="grid gap-3 sm:grid-cols-2">
+              {quickLinks.map((item) => (
                 <a
-                  className="rounded-full border border-white/10 bg-white/5 p-3 transition hover:bg-white/10"
+                  className="rounded-[3px] border border-white/10 bg-white/5 p-4 transition hover:bg-white/10"
                   href={item.href}
                   key={item.label}
                   rel="noreferrer"
                   target="_blank"
                 >
-                  <img alt={item.label} className="h-5 w-5" src={item.icon} />
+                  <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/45">
+                    {item.label}
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-white/75">
+                    {item.description}
+                  </p>
                 </a>
               ))}
             </div>

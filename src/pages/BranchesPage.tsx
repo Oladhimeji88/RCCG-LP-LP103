@@ -9,9 +9,9 @@ export function BranchesPage() {
       <section className="section-space">
         <div className="page-shell grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <SectionHeading
-            eyebrow="Our Branches"
-            title="Gather with LP 103 in Lagos, Somolu, Yaba, and beyond."
-            description="We’d love to welcome you in person. Find the expression of LP 103 nearest to you and join the family."
+            eyebrow="Our Zones"
+            title="Find your next step into LP 103."
+            description="Public zone listings for LP 103 are limited online, so this page points you toward the safest and most current ways to connect."
             action={
               <ButtonLink
                 iconSrc={asset('/icons/arrow-icon-9.svg')}

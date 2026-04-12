@@ -1,4 +1,4 @@
-﻿import type { FormEvent } from 'react'
+import type { FormEvent } from 'react'
 import { useEffect, useState } from 'react'
 import { ButtonLink } from '../components/ButtonLink'
 import { SectionHeading } from '../components/SectionHeading'
@@ -11,7 +11,6 @@ import {
   services,
   sundaySermons,
 } from '../lib/siteData'
-import { formatDate } from '../lib/utils'
 
 type PrayerForm = {
   firstName: string
@@ -57,6 +56,11 @@ function HeroSection() {
           <h1 className="mx-auto max-w-5xl text-4xl font-black uppercase leading-[0.95] sm:text-6xl lg:text-7xl">
             {homeHeroPhrases[activePhrase]}
           </h1>
+          <p className="mx-auto max-w-3xl text-lg leading-8 text-white/75">
+            A youth expression rooted in the official RCCG mission: heaven in
+            view, many souls reached, holiness at the center, and witnesses
+            raised for every sphere of life.
+          </p>
         </div>
       </div>
     </section>
@@ -64,73 +68,53 @@ function HeroSection() {
 }
 
 function LivestreamSection() {
-  const [open, setOpen] = useState(false)
-
   return (
-    <>
-      <section className="bg-black py-10 text-white">
-        <div className="page-shell">
-          <SectionHeading
-            align="center"
-            invert
-            title={livestream.title}
-            className="mb-8"
+    <section className="bg-black py-10 text-white">
+      <div className="page-shell">
+        <SectionHeading
+          align="center"
+          className="mb-8"
+          description={livestream.subtitle}
+          invert
+          title={livestream.title}
+        />
+
+        <div className="relative overflow-hidden rounded-[2rem]">
+          <img
+            alt="Live stream preview"
+            className="aspect-video w-full object-cover"
+            src={livestream.previewImage}
           />
+          <div className="absolute inset-0 bg-black/45" />
 
-          <div className="relative overflow-hidden rounded-[2rem]">
-            <img
-              alt="Live stream preview"
-              className="aspect-video w-full object-cover"
-              src={livestream.previewImage}
-            />
-            <div className="absolute inset-0 bg-black/35" />
+          <div className="absolute inset-x-0 bottom-0 grid gap-5 p-6 text-white sm:p-8 lg:grid-cols-[1fr_auto] lg:items-end">
+            <div className="space-y-2 text-left">
+              <p className="text-sm uppercase tracking-[0.2em] text-white/65">
+                {livestream.serviceLabel}
+              </p>
+              <h2 className="text-3xl font-semibold">{livestream.serviceName}</h2>
+            </div>
 
-            <div className="absolute inset-x-0 bottom-0 grid gap-5 p-6 text-white sm:p-8 lg:grid-cols-[1fr_auto] lg:items-end">
-              <div className="space-y-2 text-left">
-                <p className="text-sm uppercase tracking-[0.2em] text-white/65">
-                  {livestream.serviceLabel}
-                </p>
-                <h2 className="text-3xl font-semibold">{livestream.serviceName}</h2>
-                <p className="text-sm text-white/70">{livestream.date}</p>
-              </div>
-
-              <button
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-red-700/25 transition hover:-translate-y-0.5 hover:bg-red-700"
-                onClick={() => setOpen(true)}
-                type="button"
+            <div className="flex flex-wrap gap-3">
+              <ButtonLink
+                external
+                iconSrc={asset('/icons/arrow-icon-9.svg')}
+                to={ctaLinks.watchLive}
               >
-                Watch now
-                <span className="text-lg">â–¶</span>
-              </button>
+                Watch Live
+              </ButtonLink>
+              <ButtonLink
+                external
+                to={ctaLinks.youtubeChannel}
+                variant="secondary"
+              >
+                YouTube Channel
+              </ButtonLink>
             </div>
           </div>
         </div>
-      </section>
-
-      {open ? (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/85 p-4">
-          <div className="w-full max-w-5xl space-y-4">
-            <div className="flex justify-end">
-              <button
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-2xl text-white transition hover:bg-white/20"
-                onClick={() => setOpen(false)}
-                type="button"
-              >
-                Ã—
-              </button>
-            </div>
-            <div className="overflow-hidden rounded-[2rem] bg-black shadow-2xl">
-              <iframe
-                allow="autoplay; encrypted-media; picture-in-picture"
-                className="aspect-video w-full"
-                src={livestream.embedUrl}
-                title="RCCG LP 103 livestream"
-              />
-            </div>
-          </div>
-        </div>
-      ) : null}
-    </>
+      </div>
+    </section>
   )
 }
 
@@ -140,9 +124,10 @@ function MissionSection() {
       <div className="page-shell text-center">
         <div className="mx-auto max-w-5xl space-y-6">
           <div className="space-y-2 text-3xl font-medium leading-tight text-bridge-dark sm:text-4xl">
-            <p>We exist to raise a generation of emerging leaders</p>
-            <p>heaven and earth. Anchored in heartfelt worship,</p>
-            <p>solid teaching and active discipleship, we redirect hearts back to God.</p>
+            <p>We make heaven our priority,</p>
+            <p>we take as many people with us as possible,</p>
+            <p>holiness remains our lifestyle,</p>
+            <p>and we stay ready to witness everywhere.</p>
           </div>
 
           <div className="flex justify-center pt-2">
@@ -151,7 +136,7 @@ function MissionSection() {
               to="/about"
               variant="secondary"
             >
-              About us
+              About LP 103
             </ButtonLink>
           </div>
         </div>
@@ -165,9 +150,9 @@ function ServicesSection() {
     <section className="section-space bg-black text-white">
       <div className="page-shell space-y-10">
         <SectionHeading
+          description="LP 103 is being shaped by the public teaching, mission, and youth emphasis of RCCG and RCCG YAYA."
           invert
-          title="Encounter God in a whole new way!"
-          description="Find fire, fellowship, and fresh encounters."
+          title="How We Gather and Grow"
         />
 
         <div className="grid gap-6 lg:grid-cols-3">
@@ -208,43 +193,46 @@ function ServicesSection() {
   )
 }
 
-function SermonsSection() {
+function ResourcesSection() {
   return (
     <>
       <section className="section-space bg-stone-50">
         <div className="page-shell space-y-10">
           <SectionHeading
-            title="Latest Audio Sermons"
-            description="Listen to inspiring sermons anywhere, anytime."
             action={
               <ButtonLink
                 external
                 iconSrc={asset('/icons/arrow-icon-9.svg')}
-                to={ctaLinks.spotifyShow}
+                to={ctaLinks.rccgHome}
               >
-                View all on Spotify
+                Visit RCCG Official Site
               </ButtonLink>
             }
+            description="These public resources shaped the LP 103 refresh and are a good place to understand the wider RCCG vision."
+            title="Official RCCG Resources"
           />
 
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {audioSermons.map((audio) => (
+            {audioSermons.map((resource) => (
               <article
                 className="rounded-[3px] border border-slate-200 bg-white p-6 shadow-soft"
-                key={audio.id}
+                key={resource.id}
               >
                 <div className="space-y-4">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-bridge-orange">
+                    {resource.source}
+                  </p>
                   <h3 className="text-xl font-semibold leading-tight text-slate-900">
-                    {audio.name}
+                    {resource.name}
                   </h3>
-                  <p className="text-sm text-slate-500">{formatDate(audio.date)}</p>
+                  <p className="leading-7 text-slate-600">{resource.description}</p>
                   <a
                     className="inline-flex items-center gap-2 text-sm font-semibold text-bridge-orange transition hover:underline"
-                    href={audio.link}
+                    href={resource.link}
                     rel="noreferrer"
                     target="_blank"
                   >
-                    Listen on Spotify
+                    Open resource
                   </a>
                 </div>
               </article>
@@ -256,50 +244,49 @@ function SermonsSection() {
       <section className="section-space bg-white">
         <div className="page-shell space-y-10">
           <SectionHeading
-            title="Sunday services for the month"
-            description="We'd love to welcome you in person or online!"
             action={
               <ButtonLink
                 external
                 iconSrc={asset('/icons/arrow-icon-9.svg')}
-                to={ctaLinks.youtubeChannel}
+                to={ctaLinks.yayaGlobal}
               >
-                View all sermons
+                Explore YAYA Global
               </ButtonLink>
             }
+            description="Public LP 103 details online are limited, so the site now reflects verified RCCG and YAYA context instead of copied local specifics."
+            title="What Shapes LP 103"
           />
 
           <div className="grid gap-6 lg:grid-cols-2">
-            {sundaySermons.map((sermon) => (
+            {sundaySermons.map((item) => (
               <article
                 className="overflow-hidden rounded-[3px] border border-slate-200 bg-white shadow-soft"
-                key={sermon.id}
+                key={item.id}
               >
                 <img
-                  alt={sermon.title}
+                  alt={item.title}
                   className="h-72 w-full object-cover"
-                  src={sermon.image}
+                  src={item.image}
                 />
                 <div className="space-y-4 p-6">
-                  <div className="flex items-center gap-3 text-sm text-slate-500">
-                    <img alt="" aria-hidden className="h-5 w-5" src={asset('/icons/date-icon.svg')} />
-                    <span>{sermon.date}</span>
-                  </div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-bridge-orange">
+                    {item.label}
+                  </p>
                   <div>
                     <h3 className="text-2xl font-semibold text-slate-900">
-                      {sermon.title}
+                      {item.title}
                     </h3>
                     <p className="mt-3 line-clamp-3 leading-7 text-slate-600">
-                      {sermon.description}
+                      {item.description}
                     </p>
                   </div>
                   <a
                     className="inline-flex items-center gap-2 text-sm font-semibold text-bridge-orange transition hover:underline"
-                    href={ctaLinks.youtubeChannel}
+                    href={item.link}
                     rel="noreferrer"
                     target="_blank"
                   >
-                    Watch live
+                    Learn more
                     <img alt="" aria-hidden className="h-3 w-4" src={asset('/icons/arrow-icon-9.svg')} />
                   </a>
                 </div>
@@ -327,18 +314,26 @@ function CounselingSection() {
           <div className="relative grid gap-10 p-8 sm:p-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div className="space-y-6">
               <SectionHeading
+                description="RCCG YAYA reminds young people that it is okay not to have all the answers. LP 103 wants to offer a listening ear, prayerful support, and wise next steps whenever life feels heavy."
                 invert
-                title="Our mission is soul care"
-                description="At Province 103 Youth, LP 103, we believe that no one should walk alone through lifeâ€™s challenges. Our dedicated counselling ministry is here to offer a listening ear, prayerful support, and biblical guidance in times of need."
+                title="Soul care still matters here"
               />
 
-              <ButtonLink
-                external
-                iconSrc={asset('/icons/arrow-icon-9.svg')}
-                to={ctaLinks.counseling}
-              >
-                Go to counselling
-              </ButtonLink>
+              <div className="flex flex-wrap gap-4">
+                <ButtonLink
+                  iconSrc={asset('/icons/arrow-icon-9.svg')}
+                  to={ctaLinks.counseling}
+                >
+                  Go to counseling
+                </ButtonLink>
+                <ButtonLink
+                  external
+                  to={ctaLinks.yayaCounsel}
+                  variant="secondary"
+                >
+                  YAYA counselor
+                </ButtonLink>
+              </div>
             </div>
 
             <div className="overflow-hidden rounded-[2rem] shadow-2xl shadow-black/30">
@@ -380,9 +375,9 @@ function ContactTeaserSection() {
         <div className="mx-auto max-w-3xl space-y-10 text-center">
           <SectionHeading
             align="center"
+            description="Need zone details, prayer support, counseling, or a next step into community? Drop us a note."
             invert
-            title="Have a question? Prayer request?"
-            description="Drop us a note"
+            title="How can we help?"
           />
 
           {notice ? (
@@ -457,7 +452,7 @@ function ContactTeaserSection() {
                   content: event.target.value,
                 }))
               }
-              placeholder="Your prayer request"
+              placeholder="Tell us what you need"
               required
               value={formState.content}
             />
@@ -487,10 +482,9 @@ export function HomePage() {
       <LivestreamSection />
       <MissionSection />
       <ServicesSection />
-      <SermonsSection />
+      <ResourcesSection />
       <CounselingSection />
       <ContactTeaserSection />
     </main>
   )
 }
-
