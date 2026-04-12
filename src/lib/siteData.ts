@@ -92,7 +92,7 @@ export const navItems: NavItem[] = [
 
 export const ctaLinks = {
   giving: '/giving',
-  watchLive: 'https://rccgworld.org/',
+  watchLive: 'https://www.youtube.com/@rccglive/streams',
   counseling: '/counseling',
   rccgHome: 'https://www.rccg.org/',
   missionVision: 'https://www.rccg.org/mission-and-vision/',
@@ -103,7 +103,7 @@ export const ctaLinks = {
   yayaPrayer: 'https://rccgyayaglobal.org/prayer',
   yayaCounsel: 'https://rccgyayaglobal.org/counsel',
   onlineGiving: 'https://rccgpayments.trccg.org/',
-  youtubeChannel: 'https://www.youtube.com/@RCCG-1',
+  youtubeChannel: 'https://www.youtube.com/@rccglive',
 }
 
 export const homeHeroPhrases = [

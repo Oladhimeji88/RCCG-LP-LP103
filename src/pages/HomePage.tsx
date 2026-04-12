@@ -8,6 +8,7 @@ import {
   ctaLinks,
   homeHeroPhrases,
   livestream,
+  lp103Address,
   services,
   sundaySermons,
 } from '../lib/siteData'
@@ -27,6 +28,39 @@ const initialPrayerForm: PrayerForm = {
   phoneNumber: '',
   content: '',
 }
+
+const upcomingEvents = [
+  {
+    id: 1,
+    label: 'This Sunday',
+    title: 'Sunday Worship Gathering',
+    schedule: 'Every Sunday',
+    description:
+      'Join the LP 103 family for worship, the Word, prayer, and community.',
+    location: lp103Address,
+    image: asset('/gallery/bridge1.png'),
+  },
+  {
+    id: 2,
+    label: 'Midweek',
+    title: 'Word and Prayer Recharge',
+    schedule: 'Weekly gathering',
+    description:
+      'A focused midweek moment for Bible teaching, prayer, and spiritual refreshment.',
+    location: lp103Address,
+    image: asset('/gallery/bridge2.png'),
+  },
+  {
+    id: 3,
+    label: 'Stay Connected',
+    title: 'Youth Community Meetups',
+    schedule: 'Schedules shared through LP 103 channels',
+    description:
+      'Get updates on fellowships, youth hangouts, prayer moments, and special gatherings.',
+    location: 'Use the Connect page for the latest event details.',
+    image: asset('/gallery/bridge3.png'),
+  },
+]
 
 function HeroSection() {
   const [activePhrase, setActivePhrase] = useState(0)
@@ -61,6 +95,70 @@ function HeroSection() {
             view, many souls reached, holiness at the center, and witnesses
             raised for every sphere of life.
           </p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function UpcomingEventsSection() {
+  return (
+    <section className="section-space bg-stone-50">
+      <div className="page-shell space-y-10">
+        <SectionHeading
+          action={
+            <ButtonLink
+              iconSrc={asset('/icons/arrow-icon-9.svg')}
+              to="/connect"
+            >
+              Get Event Updates
+            </ButtonLink>
+          }
+          eyebrow="Upcoming Events"
+          title="What is coming up at LP 103"
+          description="A quick look at the recurring gatherings and community rhythms we want you to be part of."
+        />
+
+        <div className="grid gap-6 lg:grid-cols-3">
+          {upcomingEvents.map((event) => (
+            <article
+              className="flex h-full flex-col overflow-hidden rounded-[3px] border border-slate-200 bg-white shadow-soft transition hover:-translate-y-1"
+              key={event.id}
+            >
+              <img
+                alt={event.title}
+                className="h-56 w-full object-cover"
+                src={event.image}
+              />
+
+              <div className="flex flex-1 flex-col p-6">
+                <div className="space-y-4">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-bridge-orange">
+                    {event.label}
+                  </p>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-slate-900">
+                      {event.title}
+                    </h3>
+                    <p className="mt-3 leading-7 text-slate-600">
+                      {event.description}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-6 space-y-3 border-t border-slate-200 pt-5 text-sm text-slate-600">
+                  <div className="flex items-center gap-3">
+                    <img alt="" aria-hidden className="h-5 w-5" src={asset('/icons/calendar-icon.svg')} />
+                    <span>{event.schedule}</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <img alt="" aria-hidden className="h-5 w-5" src={asset('/icons/location-icon.svg')} />
+                    <span>{event.location}</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -479,6 +577,7 @@ export function HomePage() {
   return (
     <main>
       <HeroSection />
+      <UpcomingEventsSection />
       <LivestreamSection />
       <MissionSection />
       <ServicesSection />

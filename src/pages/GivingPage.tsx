@@ -37,7 +37,7 @@ export function GivingPage() {
                 </h2>
                 <p className="mt-4 flex-1 leading-7 text-slate-600">{option.note}</p>
                 <a
-                  className="mt-6 inline-flex w-fit items-center justify-center rounded-full bg-bridge-orange px-5 py-3 text-sm font-semibold text-white transition hover:bg-orange-600"
+                  className="mt-6 inline-flex w-fit items-center justify-center rounded-lg bg-bridge-orange px-5 py-3 text-sm font-semibold text-white transition hover:bg-orange-600"
                   href={option.href}
                   rel="noreferrer"
                   target={option.href.startsWith('mailto:') ? undefined : '_blank'}
@@ -46,15 +46,6 @@ export function GivingPage() {
                 </a>
               </article>
             ))}
-          </div>
-
-          <div className="rounded-[3px] border border-slate-200 bg-stone-50 p-6 text-slate-700 shadow-soft">
-            <p className="text-lg leading-8">
-              Public LP 103 banking information was not available from reliable
-              online sources, so the site no longer displays copied account
-              numbers. If you need local giving instructions, use the LP 103 email
-              address listed on the site.
-            </p>
           </div>
         </div>
       </section>
