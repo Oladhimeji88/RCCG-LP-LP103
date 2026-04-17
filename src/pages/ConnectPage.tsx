@@ -1,5 +1,6 @@
 import type { FormEvent } from 'react'
 import { useEffect, useState } from 'react'
+import { siteContent } from '../content/siteContent'
 import { connectOptions, footerContacts, quickLinks } from '../lib/siteData'
 
 type ConnectFormState = {
@@ -35,7 +36,7 @@ export function ConnectPage() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    setNotice('Your message has been captured in this demo build.')
+    setNotice(siteContent.connect.notice)
     setFormState(initialState)
   }
 
@@ -46,15 +47,13 @@ export function ConnectPage() {
           <div className="space-y-8">
             <div className="space-y-4">
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/45">
-                Connect With Us
+                {siteContent.connect.eyebrow}
               </p>
               <h1 className="max-w-xl text-4xl font-semibold leading-tight sm:text-5xl">
-                Need a zone, prayer support, or counseling?
+                {siteContent.connect.title}
               </h1>
               <p className="max-w-xl text-lg leading-8 text-white/70">
-                Reach LP 103 for the latest meeting details and next steps. Where
-                public local information is limited, we now point you to verified
-                RCCG and RCCG YAYA resources as well.
+                {siteContent.connect.description}
               </p>
             </div>
 

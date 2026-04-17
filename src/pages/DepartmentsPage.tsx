@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { SectionHeading } from '../components/SectionHeading'
+import { siteContent } from '../content/siteContent'
 import { departments, departmentShowcaseImages } from '../lib/siteData'
 import { cn } from '../lib/utils'
 
@@ -21,9 +22,9 @@ export function DepartmentsPage() {
         <div className="page-shell space-y-12">
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <SectionHeading
-              eyebrow="Service Areas"
-              title="Ministry expressions shaped by RCCG and YAYA."
-              description="This page replaces copied local department listings with ministry areas grounded in official RCCG beliefs, youth discipleship, prayer, outreach, and service."
+              eyebrow={siteContent.departments.eyebrow}
+              title={siteContent.departments.title}
+              description={siteContent.departments.description}
             />
 
             <div className="grid grid-cols-2 gap-4">

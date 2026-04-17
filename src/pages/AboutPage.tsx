@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ButtonLink } from '../components/ButtonLink'
 import { SectionHeading } from '../components/SectionHeading'
+import { siteContent } from '../content/siteContent'
 import {
   asset,
   departments,
@@ -43,18 +44,14 @@ export function AboutPage() {
 
           <div className="space-y-8">
             <SectionHeading
-              eyebrow="About LP 103"
-              title="LP 103 is a youth-focused expression rooted in the wider RCCG mission."
-              description="Public LP 103 details online are limited, so this site now reflects verified RCCG and RCCG YAYA history, beliefs, leadership, and ministry direction."
+              eyebrow={siteContent.about.intro.eyebrow}
+              title={siteContent.about.intro.title}
+              description={siteContent.about.intro.description}
             />
 
             <div className="rounded-[3px] border border-slate-200 bg-slate-50 p-6 text-slate-700 shadow-soft">
               <p className="text-lg leading-8">
-                RCCG publicly teaches salvation in Jesus Christ, the authority of
-                Scripture, the ministry of the Holy Spirit, prayer, holiness,
-                and a life of witness. RCCG YAYA extends that heartbeat into the
-                world of youth and young adults through discipleship, training,
-                collaboration, and community.
+                {siteContent.about.intro.summary}
               </p>
             </div>
           </div>
@@ -81,20 +78,20 @@ export function AboutPage() {
           <div className="space-y-6">
             <div className="grid gap-6 rounded-[3px] bg-white p-8 shadow-soft">
               <div className="grid gap-3 border-b border-slate-200 pb-6 md:grid-cols-[12rem_1fr]">
-                <h3 className="text-xl font-semibold text-slate-900">RCCG Mission</h3>
+                <h3 className="text-xl font-semibold text-slate-900">
+                  {siteContent.about.missionDirection.missionTitle}
+                </h3>
                 <p className="text-lg leading-8 text-slate-700">
-                  To make heaven, to take as many people with us as possible,
-                  to live in holiness, and to plant churches in ways that keep
-                  the gospel close to people everywhere.
+                  {siteContent.about.missionDirection.missionText}
                 </p>
               </div>
 
               <div className="grid gap-3 md:grid-cols-[12rem_1fr]">
-                <h3 className="text-xl font-semibold text-slate-900">YAYA Direction</h3>
+                <h3 className="text-xl font-semibold text-slate-900">
+                  {siteContent.about.missionDirection.directionTitle}
+                </h3>
                 <p className="text-lg leading-8 text-slate-700">
-                  RCCG YAYA highlights discipleship, prayer, training,
-                  leadership development, collaboration, and even digital church
-                  planting as part of the church&apos;s youth movement.
+                  {siteContent.about.missionDirection.directionText}
                 </p>
               </div>
             </div>
@@ -114,8 +111,8 @@ export function AboutPage() {
         <div className="page-shell space-y-10">
           <SectionHeading
             align="center"
-            description="This timeline is based on the public history shared by RCCG, not inherited placeholder content."
-            title="RCCG History"
+            description={siteContent.about.history.description}
+            title={siteContent.about.history.title}
           />
 
           <div className="rounded-[3px] border border-slate-200 bg-white p-6 shadow-soft sm:p-8">
@@ -165,8 +162,8 @@ export function AboutPage() {
         <div className="page-shell space-y-10">
           <SectionHeading
             align="center"
-            description="These names come from official RCCG and RCCG YAYA public pages."
-            title="Visible Leadership"
+            description={siteContent.about.leadership.description}
+            title={siteContent.about.leadership.title}
           />
 
           <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
@@ -207,11 +204,11 @@ export function AboutPage() {
                 iconSrc={asset('/icons/arrow-icon-9.svg')}
                 to="/department"
               >
-                Explore Service Areas
+                {siteContent.about.ministry.ctaLabel}
               </ButtonLink>
             }
-            description="These ministry expressions are written for LP 103 using verified RCCG and YAYA themes, not copied local department lists."
-            title="Ministry Expressions"
+            description={siteContent.about.ministry.description}
+            title={siteContent.about.ministry.title}
           />
 
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -247,10 +244,10 @@ export function AboutPage() {
         <div className="page-shell flex flex-col items-center justify-between gap-6 rounded-[2rem] border border-white/10 bg-white/5 p-8 text-center backdrop-blur lg:flex-row lg:text-left">
           <div className="space-y-3">
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/50">
-              Join The Community
+              {siteContent.about.join.eyebrow}
             </p>
             <h2 className="text-3xl font-semibold leading-tight">
-              Ready to find your place in LP 103?
+              {siteContent.about.join.title}
             </h2>
           </div>
 
@@ -260,13 +257,13 @@ export function AboutPage() {
               iconSrc={asset('/icons/arrow-icon-9.svg')}
               to="/connect"
             >
-              Connect with Us
+              {siteContent.about.join.primaryCta}
             </ButtonLink>
             <Link
               className="btn-secondary justify-center"
               to="/branches"
             >
-              Explore Zones
+              {siteContent.about.join.secondaryCta}
             </Link>
           </div>
         </div>

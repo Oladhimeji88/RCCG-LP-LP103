@@ -2,13 +2,13 @@ import type { FormEvent } from 'react'
 import { useEffect, useState } from 'react'
 import { ButtonLink } from '../components/ButtonLink'
 import { SectionHeading } from '../components/SectionHeading'
+import { siteContent } from '../content/siteContent'
 import {
   asset,
   audioSermons,
   ctaLinks,
   homeHeroPhrases,
   livestream,
-  lp103Address,
   services,
   sundaySermons,
 } from '../lib/siteData'
@@ -29,38 +29,10 @@ const initialPrayerForm: PrayerForm = {
   content: '',
 }
 
-const upcomingEvents = [
-  {
-    id: 1,
-    label: 'This Sunday',
-    title: 'Sunday Worship Gathering',
-    schedule: 'Every Sunday',
-    description:
-      'Join the LP 103 family for worship, the Word, prayer, and community.',
-    location: lp103Address,
-    image: asset('/gallery/bridge1.png'),
-  },
-  {
-    id: 2,
-    label: 'Midweek',
-    title: 'Word and Prayer Recharge',
-    schedule: 'Weekly gathering',
-    description:
-      'A focused midweek moment for Bible teaching, prayer, and spiritual refreshment.',
-    location: lp103Address,
-    image: asset('/gallery/bridge2.png'),
-  },
-  {
-    id: 3,
-    label: 'Stay Connected',
-    title: 'Youth Community Meetups',
-    schedule: 'Schedules shared through LP 103 channels',
-    description:
-      'Get updates on fellowships, youth hangouts, prayer moments, and special gatherings.',
-    location: 'Use the Connect page for the latest event details.',
-    image: asset('/gallery/bridge3.png'),
-  },
-]
+const resolveContentImage = (value: string) =>
+  value.startsWith('http') || value.startsWith('/brand/')
+    ? value
+    : asset(value)
 
 function HeroSection() {
   const [activePhrase, setActivePhrase] = useState(0)
@@ -85,15 +57,13 @@ function HeroSection() {
       <div className="page-shell relative flex min-h-screen items-center justify-center py-32 text-center">
         <div className="space-y-6">
           <p className="text-sm font-semibold uppercase tracking-[0.34em] text-white/70">
-            PROVINCE 103 YOUTH, LP 103
+            {siteContent.home.hero.eyebrow}
           </p>
           <h1 className="mx-auto max-w-5xl text-4xl font-black uppercase leading-[0.95] sm:text-6xl lg:text-7xl">
             {homeHeroPhrases[activePhrase]}
           </h1>
           <p className="mx-auto max-w-3xl text-lg leading-8 text-white/75">
-            A youth expression rooted in the official RCCG mission: heaven in
-            view, many souls reached, holiness at the center, and witnesses
-            raised for every sphere of life.
+            {siteContent.home.hero.description}
           </p>
         </div>
       </div>
@@ -111,16 +81,16 @@ function UpcomingEventsSection() {
               iconSrc={asset('/icons/arrow-icon-9.svg')}
               to="/connect"
             >
-              Get Event Updates
+              {siteContent.home.upcomingEvents.ctaLabel}
             </ButtonLink>
           }
-          eyebrow="Upcoming Events"
-          title="What is coming up at LP 103"
-          description="A quick look at the recurring gatherings and community rhythms we want you to be part of."
+          eyebrow={siteContent.home.upcomingEvents.eyebrow}
+          title={siteContent.home.upcomingEvents.title}
+          description={siteContent.home.upcomingEvents.description}
         />
 
         <div className="grid gap-6 lg:grid-cols-3">
-          {upcomingEvents.map((event) => (
+          {siteContent.home.upcomingEvents.items.map((event) => (
             <article
               className="flex h-full flex-col overflow-hidden rounded-[3px] border border-slate-200 bg-white shadow-soft transition hover:-translate-y-1"
               key={event.id}
@@ -128,7 +98,7 @@ function UpcomingEventsSection() {
               <img
                 alt={event.title}
                 className="h-56 w-full object-cover"
-                src={event.image}
+                src={resolveContentImage(event.image)}
               />
 
               <div className="flex flex-1 flex-col p-6">
@@ -199,14 +169,14 @@ function LivestreamSection() {
                 iconSrc={asset('/icons/arrow-icon-9.svg')}
                 to={ctaLinks.watchLive}
               >
-                Watch Live
+                {siteContent.home.livestream.primaryCta}
               </ButtonLink>
               <ButtonLink
                 external
                 to={ctaLinks.youtubeChannel}
                 variant="secondary"
               >
-                YouTube Channel
+                {siteContent.home.livestream.secondaryCta}
               </ButtonLink>
             </div>
           </div>
@@ -222,10 +192,9 @@ function MissionSection() {
       <div className="page-shell text-center">
         <div className="mx-auto max-w-5xl space-y-6">
           <div className="space-y-2 text-3xl font-medium leading-tight text-bridge-dark sm:text-4xl">
-            <p>We make heaven our priority,</p>
-            <p>we take as many people with us as possible,</p>
-            <p>holiness remains our lifestyle,</p>
-            <p>and we stay ready to witness everywhere.</p>
+            {siteContent.home.mission.lines.map((line) => (
+              <p key={line}>{line}</p>
+            ))}
           </div>
 
           <div className="flex justify-center pt-2">
@@ -234,7 +203,7 @@ function MissionSection() {
               to="/about"
               variant="secondary"
             >
-              About LP 103
+              {siteContent.home.mission.ctaLabel}
             </ButtonLink>
           </div>
         </div>
@@ -248,9 +217,9 @@ function ServicesSection() {
     <section className="section-space bg-black text-white">
       <div className="page-shell space-y-10">
         <SectionHeading
-          description="LP 103 is being shaped by the public teaching, mission, and youth emphasis of RCCG and RCCG YAYA."
+          description={siteContent.home.services.description}
           invert
-          title="How We Gather and Grow"
+          title={siteContent.home.services.title}
         />
 
         <div className="grid gap-6 lg:grid-cols-3">
@@ -303,11 +272,11 @@ function ResourcesSection() {
                 iconSrc={asset('/icons/arrow-icon-9.svg')}
                 to={ctaLinks.rccgHome}
               >
-                Visit RCCG Official Site
+                {siteContent.home.officialResources.ctaLabel}
               </ButtonLink>
             }
-            description="These public resources shaped the LP 103 refresh and are a good place to understand the wider RCCG vision."
-            title="Official RCCG Resources"
+            description={siteContent.home.officialResources.description}
+            title={siteContent.home.officialResources.title}
           />
 
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -348,11 +317,11 @@ function ResourcesSection() {
                 iconSrc={asset('/icons/arrow-icon-9.svg')}
                 to={ctaLinks.yayaGlobal}
               >
-                Explore YAYA Global
+                {siteContent.home.focusCards.ctaLabel}
               </ButtonLink>
             }
-            description="Public LP 103 details online are limited, so the site now reflects verified RCCG and YAYA context instead of copied local specifics."
-            title="What Shapes LP 103"
+            description={siteContent.home.focusCards.description}
+            title={siteContent.home.focusCards.title}
           />
 
           <div className="grid gap-6 lg:grid-cols-2">
@@ -412,9 +381,9 @@ function CounselingSection() {
           <div className="relative grid gap-10 p-8 sm:p-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div className="space-y-6">
               <SectionHeading
-                description="RCCG YAYA reminds young people that it is okay not to have all the answers. LP 103 wants to offer a listening ear, prayerful support, and wise next steps whenever life feels heavy."
+                description={siteContent.home.counseling.description}
                 invert
-                title="Soul care still matters here"
+                title={siteContent.home.counseling.title}
               />
 
               <div className="flex flex-wrap gap-4">
@@ -422,14 +391,14 @@ function CounselingSection() {
                   iconSrc={asset('/icons/arrow-icon-9.svg')}
                   to={ctaLinks.counseling}
                 >
-                  Go to counseling
+                  {siteContent.home.counseling.primaryCta}
                 </ButtonLink>
                 <ButtonLink
                   external
                   to={ctaLinks.yayaCounsel}
                   variant="secondary"
                 >
-                  YAYA counselor
+                  {siteContent.home.counseling.secondaryCta}
                 </ButtonLink>
               </div>
             </div>
@@ -463,7 +432,7 @@ function ContactTeaserSection() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    setNotice('Your request has been captured in this demo build.')
+    setNotice(siteContent.home.contact.notice)
     setFormState(initialPrayerForm)
   }
 
@@ -473,9 +442,9 @@ function ContactTeaserSection() {
         <div className="mx-auto max-w-3xl space-y-10 text-center">
           <SectionHeading
             align="center"
-            description="Need zone details, prayer support, counseling, or a next step into community? Drop us a note."
+            description={siteContent.home.contact.description}
             invert
-            title="How can we help?"
+            title={siteContent.home.contact.title}
           />
 
           {notice ? (

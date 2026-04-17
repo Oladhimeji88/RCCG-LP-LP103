@@ -1,5 +1,6 @@
 import { ButtonLink } from '../components/ButtonLink'
 import { SectionHeading } from '../components/SectionHeading'
+import { siteContent } from '../content/siteContent'
 import { asset, branches } from '../lib/siteData'
 import { cn } from '../lib/utils'
 
@@ -9,15 +10,15 @@ export function BranchesPage() {
       <section className="section-space">
         <div className="page-shell grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <SectionHeading
-            eyebrow="Our Zones"
-            title="Find your next step into LP 103."
-            description="Public zone listings for LP 103 are limited online, so this page points you toward the safest and most current ways to connect."
+            eyebrow={siteContent.zones.eyebrow}
+            title={siteContent.zones.title}
+            description={siteContent.zones.description}
             action={
               <ButtonLink
                 iconSrc={asset('/icons/arrow-icon-9.svg')}
                 to="/connect"
               >
-                Connect with Us
+                {siteContent.zones.ctaLabel}
               </ButtonLink>
             }
           />

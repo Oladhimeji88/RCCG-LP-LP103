@@ -1,3 +1,4 @@
+import { siteContent } from '../content/siteContent'
 import { asset, givingOptions } from '../lib/siteData'
 
 export function GivingPage() {
@@ -14,11 +15,10 @@ export function GivingPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-bridge-dark/75 via-bridge-dark/20 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-8 text-center text-white sm:p-12">
               <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
-                Give with clarity and confidence
+                {siteContent.giving.title}
               </h1>
               <p className="mt-4 text-lg text-white/80">
-                We removed unverified bank details and now point you to the safest
-                current giving routes.
+                {siteContent.giving.subtitle}
               </p>
             </div>
           </div>

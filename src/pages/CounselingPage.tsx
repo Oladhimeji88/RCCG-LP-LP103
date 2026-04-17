@@ -1,47 +1,7 @@
 import { ButtonLink } from '../components/ButtonLink'
 import { SectionHeading } from '../components/SectionHeading'
+import { siteContent } from '../content/siteContent'
 import { asset, ctaLinks, footerContacts } from '../lib/siteData'
-
-const counselingAreas = [
-  {
-    title: 'Emotional Support',
-    description:
-      'A safe space to talk through pressure, fear, grief, or seasons that feel heavy.',
-  },
-  {
-    title: 'Relationship Guidance',
-    description:
-      'Prayerful and practical support for friendships, family concerns, courtship, and marriage.',
-  },
-  {
-    title: 'Purpose and Direction',
-    description:
-      'Encouragement for decisions around calling, education, work, and next steps.',
-  },
-  {
-    title: 'Spiritual Care',
-    description:
-      'Biblical counsel rooted in compassion, discipleship, prayer, and renewed hope.',
-  },
-]
-
-const counselingSteps = [
-  {
-    title: 'Reach Out',
-    description:
-      'Send us a message through the connect page and let us know how we can support you.',
-  },
-  {
-    title: 'We Follow Up',
-    description:
-      'Our team reviews each request carefully and responds with the right next step.',
-  },
-  {
-    title: 'Receive Care',
-    description:
-      'You will be guided with warmth, confidentiality, prayer, and practical counsel.',
-  },
-]
 
 export function CounselingPage() {
   const email = footerContacts.find((item) => item.label === 'Email')?.value ?? ''
@@ -53,9 +13,9 @@ export function CounselingPage() {
         <div className="page-shell grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <div className="space-y-8">
             <SectionHeading
-              eyebrow="Counseling"
-              title="You do not have to walk through hard seasons alone."
-              description="RCCG YAYA reminds young people that it is okay not to have all the answers. LP 103 offers a caring environment where people can be heard, supported, prayed with, and guided with wisdom."
+              eyebrow={siteContent.counseling.header.eyebrow}
+              title={siteContent.counseling.header.title}
+              description={siteContent.counseling.header.description}
             />
 
             <div className="flex flex-wrap gap-4">
@@ -63,7 +23,7 @@ export function CounselingPage() {
                 iconSrc={asset('/icons/arrow-icon-9.svg')}
                 to="/connect"
               >
-                Request Support
+                {siteContent.counseling.header.primaryCta}
               </ButtonLink>
               <ButtonLink
                 className="justify-center"
@@ -71,7 +31,7 @@ export function CounselingPage() {
                 to={`mailto:${email}`}
                 variant="secondary"
               >
-                Email Us
+                {siteContent.counseling.header.secondaryCta}
               </ButtonLink>
               <ButtonLink
                 className="justify-center"
@@ -79,7 +39,7 @@ export function CounselingPage() {
                 to={ctaLinks.yayaCounsel}
                 variant="secondary"
               >
-                YAYA Counselor
+                {siteContent.counseling.header.tertiaryCta}
               </ButtonLink>
             </div>
           </div>
@@ -97,12 +57,12 @@ export function CounselingPage() {
       <section className="section-space bg-stone-50">
         <div className="page-shell space-y-10">
           <SectionHeading
-            title="How We Can Help"
-            description="Our counseling ministry is designed to offer soul care with empathy, confidentiality, and biblical perspective."
+            title={siteContent.counseling.help.title}
+            description={siteContent.counseling.help.description}
           />
 
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {counselingAreas.map((area) => (
+            {siteContent.counseling.help.areas.map((area) => (
               <article
                 className="rounded-[3px] border border-slate-200 bg-white p-6 shadow-soft"
                 key={area.title}
@@ -118,12 +78,12 @@ export function CounselingPage() {
       <section className="section-space">
         <div className="page-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <SectionHeading
-            title="What To Expect"
-            description="We want the process to feel clear, kind, and safe from the first step."
+            title={siteContent.counseling.expectations.title}
+            description={siteContent.counseling.expectations.description}
           />
 
           <div className="grid gap-5 md:grid-cols-3">
-            {counselingSteps.map((step, index) => (
+            {siteContent.counseling.expectations.steps.map((step, index) => (
               <article
                 className="rounded-[3px] border border-slate-200 bg-white p-6 shadow-soft"
                 key={step.title}
@@ -143,11 +103,10 @@ export function CounselingPage() {
         <div className="page-shell grid gap-8 rounded-[3px] border border-white/10 bg-white/5 p-8 lg:grid-cols-[1fr_auto] lg:items-center">
           <div className="space-y-4">
             <h2 className="text-3xl font-semibold leading-tight">
-              Ready to speak with someone?
+              {siteContent.counseling.finalCta.title}
             </h2>
             <p className="max-w-2xl text-lg leading-8 text-white/75">
-              Reach out through the connect page, email us directly, or use the
-              wider YAYA counseling route if you need another support option.
+              {siteContent.counseling.finalCta.description}
             </p>
             <div className="space-y-2 text-white/85">
               <p>{email}</p>
@@ -160,7 +119,7 @@ export function CounselingPage() {
               iconSrc={asset('/icons/arrow-icon-9.svg')}
               to="/connect"
             >
-              Go to Connect
+              {siteContent.counseling.finalCta.primaryCta}
             </ButtonLink>
             <ButtonLink
               className="justify-center"
@@ -168,7 +127,7 @@ export function CounselingPage() {
               to={`mailto:${email}`}
               variant="secondary"
             >
-              Send Email
+              {siteContent.counseling.finalCta.secondaryCta}
             </ButtonLink>
           </div>
         </div>

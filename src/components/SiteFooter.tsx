@@ -1,3 +1,4 @@
+import { siteContent } from '../content/siteContent'
 import { asset, footerContacts, quickLinks } from '../lib/siteData'
 
 export function SiteFooter() {
@@ -15,25 +16,24 @@ export function SiteFooter() {
       <div className="page-shell relative grid gap-12 py-16 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
         <div className="space-y-6">
           <img
-            alt="Province 103 Youth, LP 103 logo"
+            alt={`${siteContent.brand.churchName} logo`}
             className="h-20 w-auto"
             src="/brand/rccg-logo.png"
           />
           <p className="max-w-md text-lg leading-8 text-white/75">
-            Province 103 Youth, LP 103 is a youth-focused community rooted in
-            the wider RCCG mission, shaped by prayer, discipleship, service,
-            and witness.
+            {siteContent.brand.footerDescription}
           </p>
         </div>
 
         <div className="grid gap-10 md:grid-cols-[1fr_auto] md:items-end">
           <div className="space-y-6">
             <h3 className="text-3xl font-medium leading-tight">
-              This is not just church.
-              <br />
-              This is LP 103.
-              <br />
-              This is home.
+              {siteContent.brand.footerTaglineLines.map((line, index) => (
+                <span key={line}>
+                  {index > 0 ? <br /> : null}
+                  {line}
+                </span>
+              ))}
             </h3>
 
             <div className="space-y-4 text-white/80">
