@@ -1,6 +1,7 @@
 // Edit this file to update the website's content in one place.
 // Change names, links, address, events, page copy, contact info, and major section text here.
 import {
+  bannerImage,
   picture1,
   picture2,
   picture3,
@@ -33,6 +34,7 @@ export const siteContent = {
   navigation: {
     items: [
       { label: 'Home', href: '/' },
+      { label: 'Jobs', href: '/jobs' },
       { label: 'Connect', href: '/connect' },
       { label: 'Zones', href: '/branches' },
       { label: 'About Us', href: '/about' },
@@ -111,7 +113,7 @@ export const siteContent = {
       serviceName: 'Streams, congresses and special services',
       subtitle:
         'Follow official RCCG and YAYA channels for current live services, congresses, and youth-focused gatherings.',
-      previewImage: picture4,
+      previewImage: bannerImage,
       primaryCta: 'Watch Live',
       secondaryCta: 'YouTube Channel',
     },

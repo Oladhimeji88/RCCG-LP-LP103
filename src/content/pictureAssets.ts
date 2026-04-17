@@ -5,8 +5,10 @@ import picture4 from '../Pictures/669559922_122242495658088875_84603719834480623
 import picture5 from '../Pictures/669572365_122242414994088875_7764125718435688080_n.jpg'
 import picture6 from '../Pictures/669606779_122242415138088875_3912825390255319518_n.jpg'
 import picture7 from '../Pictures/669822247_122242495850088875_7674208819489452974_n.jpg'
+import bannerImage from '../Pictures/Banner.jpg'
 
 export {
+  bannerImage,
   picture1,
   picture2,
   picture3,
