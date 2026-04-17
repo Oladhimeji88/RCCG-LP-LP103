@@ -1,4 +1,11 @@
-import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from 'react'
+import {
+  useEffect,
+  useMemo,
+  useState,
+  type ChangeEvent,
+  type FormEvent,
+  type ReactNode,
+} from 'react'
 import { Link } from 'react-router-dom'
 import {
   ADMIN_EMAIL,
@@ -24,6 +31,12 @@ type AdminSectionProps = {
 
 type UpcomingEvent = SiteContent['home']['upcomingEvents']['items'][number]
 
+type ImageInputFieldProps = {
+  label: string
+  value: string
+  onChange: (value: string) => void
+}
+
 function AdminSection({ title, description, children, actions }: AdminSectionProps) {
   return (
     <section className="rounded-[3px] border border-slate-200 bg-white p-6 shadow-soft sm:p-8">
@@ -36,6 +49,145 @@ function AdminSection({ title, description, children, actions }: AdminSectionPro
       </div>
       <div className="mt-6">{children}</div>
     </section>
+  )
+}
+
+const isUploadedImage = (value: string) => value.startsWith('data:')
+
+const readFileAsDataUrl = (file: File) =>
+  new Promise<string>((resolve, reject) => {
+    const reader = new FileReader()
+
+    reader.onload = () => resolve(String(reader.result ?? ''))
+    reader.onerror = () => reject(new Error('Unable to read the selected file.'))
+    reader.readAsDataURL(file)
+  })
+
+const optimizeImageFile = async (file: File) => {
+  if (file.type === 'image/svg+xml' || file.type === 'image/gif') {
+    return readFileAsDataUrl(file)
+  }
+
+  const objectUrl = URL.createObjectURL(file)
+
+  try {
+    const image = await new Promise<HTMLImageElement>((resolve, reject) => {
+      const nextImage = new Image()
+
+      nextImage.onload = () => resolve(nextImage)
+      nextImage.onerror = () => reject(new Error('Unable to load the selected image.'))
+      nextImage.src = objectUrl
+    })
+
+    const maxWidth = 1400
+    const maxHeight = 1400
+    const scale = Math.min(maxWidth / image.width, maxHeight / image.height, 1)
+    const canvas = document.createElement('canvas')
+    const width = Math.max(1, Math.round(image.width * scale))
+    const height = Math.max(1, Math.round(image.height * scale))
+
+    canvas.width = width
+    canvas.height = height
+
+    const context = canvas.getContext('2d')
+
+    if (!context) {
+      return readFileAsDataUrl(file)
+    }
+
+    context.drawImage(image, 0, 0, width, height)
+
+    return canvas.toDataURL(
+      file.type === 'image/png' ? 'image/png' : 'image/jpeg',
+      file.type === 'image/png' ? undefined : 0.82,
+    )
+  } finally {
+    URL.revokeObjectURL(objectUrl)
+  }
+}
+
+function ImageInputField({ label, value, onChange }: ImageInputFieldProps) {
+  const [uploadError, setUploadError] = useState('')
+  const [isUploading, setIsUploading] = useState(false)
+  const uploadedFromDevice = isUploadedImage(value)
+  const previewValue = value || '/brand/rccg-logo.png'
+
+  const handleFileChange = async (event: ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = event.target.files?.[0]
+
+    if (!selectedFile) {
+      return
+    }
+
+    setIsUploading(true)
+    setUploadError('')
+
+    try {
+      const optimizedImage = await optimizeImageFile(selectedFile)
+      onChange(optimizedImage)
+    } catch {
+      setUploadError('The image could not be uploaded. Try another image file.')
+    } finally {
+      setIsUploading(false)
+      event.target.value = ''
+    }
+  }
+
+  return (
+    <div className="space-y-3">
+      <div className="space-y-2">
+        <span className="text-sm font-semibold text-slate-700">{label}</span>
+        <div className="overflow-hidden rounded-[3px] border border-slate-200 bg-slate-100">
+          <img
+            alt={label}
+            className="h-44 w-full object-cover"
+            src={previewValue}
+          />
+        </div>
+      </div>
+
+      <input
+        className="w-full rounded-[3px] border border-slate-200 px-4 py-3 outline-none transition focus:border-bridge-orange"
+        onChange={(event) => onChange(event.target.value)}
+        placeholder={
+          uploadedFromDevice
+            ? 'Uploaded image stored in this browser. Paste a URL here to replace it.'
+            : 'Paste an image URL or keep using upload from device.'
+        }
+        type="text"
+        value={uploadedFromDevice ? '' : value}
+      />
+
+      <div className="flex flex-wrap items-center gap-3">
+        <label className="inline-flex cursor-pointer items-center justify-center rounded-lg border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50">
+          <input
+            accept="image/*"
+            className="hidden"
+            onChange={handleFileChange}
+            type="file"
+          />
+          {isUploading ? 'Uploading image...' : 'Upload From Device'}
+        </label>
+
+        {uploadedFromDevice ? (
+          <button
+            className="inline-flex items-center justify-center rounded-lg border border-red-200 px-4 py-3 text-sm font-semibold text-red-600 transition hover:bg-red-50"
+            onClick={() => onChange('')}
+            type="button"
+          >
+            Remove Uploaded Image
+          </button>
+        ) : null}
+      </div>
+
+      <p className="text-xs leading-6 text-slate-500">
+        Uploaded images are saved in this browser and will show on the website after you click save.
+      </p>
+
+      {uploadError ? (
+        <p className="text-sm text-red-600">{uploadError}</p>
+      ) : null}
+    </div>
   )
 }
 
@@ -335,12 +487,26 @@ export function AdminPage() {
   }
 
   const handleSiteSave = () => {
-    saveManagedSiteContent(siteDraft)
+    const result = saveManagedSiteContent(siteDraft)
+
+    if (!result.ok) {
+      setError(result.error ?? 'Website content could not be saved.')
+      return
+    }
+
+    setError('')
     setNotice('Website content saved.')
   }
 
   const handleJobsSave = () => {
-    saveManagedJobsContent(jobsDraft)
+    const result = saveManagedJobsContent(jobsDraft)
+
+    if (!result.ok) {
+      setError(result.error ?? 'Jobs content could not be saved.')
+      return
+    }
+
+    setError('')
     setNotice('Jobs content saved.')
   }
 
@@ -481,6 +647,12 @@ export function AdminPage() {
         {notice ? (
           <div className="rounded-[3px] bg-emerald-500 px-4 py-3 text-sm font-medium text-white shadow-soft">
             {notice}
+          </div>
+        ) : null}
+
+        {error ? (
+          <div className="rounded-[3px] bg-red-50 px-4 py-3 text-sm font-medium text-red-700 shadow-soft">
+            {error}
           </div>
         ) : null}
 
@@ -691,15 +863,11 @@ export function AdminPage() {
                       />
                     </label>
 
-                    <label className="space-y-2">
-                      <span className="text-sm font-semibold text-slate-700">Image URL or Path</span>
-                      <input
-                        className="w-full rounded-[3px] border border-slate-200 px-4 py-3 outline-none transition focus:border-bridge-orange"
-                        onChange={(event) => updateUpcomingEvent(index, 'image', event.target.value)}
-                        type="text"
-                        value={eventItem.image}
-                      />
-                    </label>
+                    <ImageInputField
+                      label="Event Image"
+                      onChange={(value) => updateUpcomingEvent(index, 'image', value)}
+                      value={eventItem.image}
+                    />
                   </div>
                 </div>
               ))}

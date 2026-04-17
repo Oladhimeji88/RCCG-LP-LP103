@@ -13,6 +13,11 @@ type AdminSession = {
   signedInAt: string
 } | null
 
+type StoreActionResult = {
+  ok: boolean
+  error?: string
+}
+
 const SITE_CONTENT_KEY = 'lp103-site-content'
 const JOBS_CONTENT_KEY = 'lp103-jobs-content'
 const ADMIN_SESSION_KEY = 'lp103-admin-session'
@@ -55,13 +60,30 @@ const dispatchStoreEvent = (eventName: string) => {
   window.dispatchEvent(new Event(eventName))
 }
 
-const saveStoredValue = <Value,>(key: string, value: Value, eventName: string) => {
+const saveStoredValue = <Value,>(
+  key: string,
+  value: Value,
+  eventName: string,
+): StoreActionResult => {
   if (typeof window === 'undefined') {
-    return
+    return {
+      ok: false,
+      error: 'This action is only available in the browser.',
+    }
   }
 
-  window.localStorage.setItem(key, JSON.stringify(value))
-  dispatchStoreEvent(eventName)
+  try {
+    window.localStorage.setItem(key, JSON.stringify(value))
+    dispatchStoreEvent(eventName)
+
+    return { ok: true }
+  } catch {
+    return {
+      ok: false,
+      error:
+        'Unable to save this update. Browser storage may be full, so try a smaller image file and save again.',
+    }
+  }
 }
 
 const clearStoredValue = (key: string, eventName: string) => {
@@ -144,7 +166,7 @@ export const loginAdmin = (email: string, password: string) => {
     return false
   }
 
-  saveStoredValue(
+  const result = saveStoredValue(
     ADMIN_SESSION_KEY,
     {
       email: normalizedEmail,
@@ -153,7 +175,7 @@ export const loginAdmin = (email: string, password: string) => {
     ADMIN_SESSION_EVENT,
   )
 
-  return true
+  return result.ok
 }
 
 export const logoutAdmin = () =>

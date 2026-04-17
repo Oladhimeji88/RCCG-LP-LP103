@@ -92,7 +92,10 @@ const resolveLink = (value: string) =>
     : value
 
 const resolveImage = (value: string) =>
-  value.startsWith('http') || value.startsWith('/')
+  value.startsWith('http') ||
+    value.startsWith('/') ||
+    value.startsWith('data:') ||
+    value.startsWith('blob:')
     ? value
     : asset(value)
 

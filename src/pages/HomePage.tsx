@@ -31,7 +31,10 @@ const initialPrayerForm: PrayerForm = {
 }
 
 const resolveContentImage = (value: string) =>
-  value.startsWith('http') || value.startsWith('/')
+  value.startsWith('http') ||
+    value.startsWith('/') ||
+    value.startsWith('data:') ||
+    value.startsWith('blob:')
     ? value
     : asset(value)
 
