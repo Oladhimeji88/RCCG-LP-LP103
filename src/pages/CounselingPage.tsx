@@ -1,11 +1,12 @@
 import { ButtonLink } from '../components/ButtonLink'
 import { SectionHeading } from '../components/SectionHeading'
-import { siteContent } from '../content/siteContent'
-import { asset, ctaLinks, footerContacts } from '../lib/siteData'
+import { useManagedSiteContent } from '../lib/contentStore'
+import { asset, ctaLinks } from '../lib/siteData'
 
 export function CounselingPage() {
-  const email = footerContacts.find((item) => item.label === 'Email')?.value ?? ''
-  const support = footerContacts.find((item) => item.label === 'Support')?.value ?? ''
+  const siteContent = useManagedSiteContent()
+  const email = siteContent.brand.email
+  const support = siteContent.brand.supportText
 
   return (
     <main className="bg-white pt-28">

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { ButtonLink } from '../components/ButtonLink'
 import { SectionHeading } from '../components/SectionHeading'
 import { siteContent } from '../content/siteContent'
+import { useManagedSiteContent } from '../lib/contentStore'
 import {
   asset,
   audioSermons,
@@ -35,6 +36,7 @@ const resolveContentImage = (value: string) =>
     : asset(value)
 
 function HeroSection() {
+  const managedSiteContent = useManagedSiteContent()
   const [activePhrase, setActivePhrase] = useState(0)
 
   useEffect(() => {
@@ -57,13 +59,13 @@ function HeroSection() {
       <div className="page-shell relative flex min-h-screen items-center justify-center py-32 text-center">
         <div className="space-y-6">
           <p className="text-sm font-semibold uppercase tracking-[0.34em] text-white/70">
-            {siteContent.home.hero.eyebrow}
+            {managedSiteContent.home.hero.eyebrow}
           </p>
           <h1 className="mx-auto max-w-5xl text-4xl font-black uppercase leading-[0.95] sm:text-6xl lg:text-7xl">
             {homeHeroPhrases[activePhrase]}
           </h1>
           <p className="mx-auto max-w-3xl text-lg leading-8 text-white/75">
-            {siteContent.home.hero.description}
+            {managedSiteContent.home.hero.description}
           </p>
         </div>
       </div>
@@ -72,6 +74,8 @@ function HeroSection() {
 }
 
 function UpcomingEventsSection() {
+  const managedSiteContent = useManagedSiteContent()
+
   return (
     <section className="section-space bg-stone-50">
       <div className="page-shell space-y-10">
@@ -81,16 +85,16 @@ function UpcomingEventsSection() {
               iconSrc={asset('/icons/arrow-icon-9.svg')}
               to="/connect"
             >
-              {siteContent.home.upcomingEvents.ctaLabel}
+              {managedSiteContent.home.upcomingEvents.ctaLabel}
             </ButtonLink>
           }
-          eyebrow={siteContent.home.upcomingEvents.eyebrow}
-          title={siteContent.home.upcomingEvents.title}
-          description={siteContent.home.upcomingEvents.description}
+          eyebrow={managedSiteContent.home.upcomingEvents.eyebrow}
+          title={managedSiteContent.home.upcomingEvents.title}
+          description={managedSiteContent.home.upcomingEvents.description}
         />
 
         <div className="grid gap-6 lg:grid-cols-3">
-          {siteContent.home.upcomingEvents.items.map((event) => (
+          {managedSiteContent.home.upcomingEvents.items.map((event) => (
             <article
               className="flex h-full flex-col overflow-hidden rounded-[3px] border border-slate-200 bg-white shadow-soft transition hover:-translate-y-1"
               key={event.id}
@@ -130,6 +134,12 @@ function UpcomingEventsSection() {
             </article>
           ))}
         </div>
+
+        {!managedSiteContent.home.upcomingEvents.items.length ? (
+          <div className="rounded-[3px] border border-dashed border-slate-300 bg-white p-6 text-slate-600 shadow-soft">
+            No upcoming events have been added yet.
+          </div>
+        ) : null}
       </div>
     </section>
   )

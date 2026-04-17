@@ -1,7 +1,7 @@
 import type { FormEvent } from 'react'
 import { useEffect, useState } from 'react'
-import { siteContent } from '../content/siteContent'
-import { connectOptions, footerContacts, quickLinks } from '../lib/siteData'
+import { useManagedSiteContent } from '../lib/contentStore'
+import { asset, connectOptions, quickLinks } from '../lib/siteData'
 
 type ConnectFormState = {
   firstName: string
@@ -22,8 +22,26 @@ const initialState: ConnectFormState = {
 }
 
 export function ConnectPage() {
+  const siteContent = useManagedSiteContent()
   const [formState, setFormState] = useState(initialState)
   const [notice, setNotice] = useState('')
+  const footerContacts = [
+    {
+      label: 'Email',
+      value: siteContent.brand.email,
+      icon: asset('/icons/email-icon.svg'),
+    },
+    {
+      label: 'Location',
+      value: siteContent.brand.address,
+      icon: asset('/icons/location-pin-icon.svg'),
+    },
+    {
+      label: 'Support',
+      value: siteContent.brand.supportText,
+      icon: asset('/icons/phone-icon.svg'),
+    },
+  ]
 
   useEffect(() => {
     if (!notice) {

@@ -1,7 +1,26 @@
-import { siteContent } from '../content/siteContent'
-import { footerContacts, quickLinks } from '../lib/siteData'
+import { useManagedSiteContent } from '../lib/contentStore'
+import { asset, quickLinks } from '../lib/siteData'
 
 export function SiteFooter() {
+  const siteContent = useManagedSiteContent()
+  const dynamicFooterContacts = [
+    {
+      label: 'Email',
+      value: siteContent.brand.email,
+      icon: asset('/icons/email-icon.svg'),
+    },
+    {
+      label: 'Location',
+      value: siteContent.brand.address,
+      icon: asset('/icons/location-pin-icon.svg'),
+    },
+    {
+      label: 'Support',
+      value: siteContent.brand.supportText,
+      icon: asset('/icons/phone-icon.svg'),
+    },
+  ]
+
   return (
     <footer className="relative overflow-hidden bg-bridge-dark text-white">
       <div className="absolute inset-0 opacity-10">
@@ -37,7 +56,7 @@ export function SiteFooter() {
             </h3>
 
             <div className="space-y-4 text-white/80">
-              {footerContacts.map((contact) => (
+              {dynamicFooterContacts.map((contact) => (
                 <div className="flex items-center gap-3" key={contact.label}>
                   <img alt="" aria-hidden className="h-5 w-5" src={contact.icon} />
                   <span>{contact.value}</span>

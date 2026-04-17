@@ -617,4 +617,4 @@ const defaultSiteContent = {
 
 export type SiteContent = DeepWiden<typeof defaultSiteContent>
 
-export const siteContent: SiteContent = defaultSiteContent
+export const siteContent = defaultSiteContent as unknown as SiteContent
