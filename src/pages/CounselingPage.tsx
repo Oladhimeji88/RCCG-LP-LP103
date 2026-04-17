@@ -48,7 +48,7 @@ export function CounselingPage() {
             <img
               alt="Counseling support"
               className="h-full min-h-[22rem] w-full object-cover"
-              src={asset('/images/vision.jpg')}
+              src={siteContent.counseling.header.image}
             />
           </div>
         </div>

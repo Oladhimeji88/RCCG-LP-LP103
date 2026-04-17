@@ -30,7 +30,7 @@ const initialPrayerForm: PrayerForm = {
 }
 
 const resolveContentImage = (value: string) =>
-  value.startsWith('http') || value.startsWith('/brand/')
+  value.startsWith('http') || value.startsWith('/')
     ? value
     : asset(value)
 
@@ -374,7 +374,7 @@ function CounselingSection() {
           <img
             alt="Counseling background"
             className="absolute inset-0 h-full w-full object-cover"
-            src={asset('/gallery/bridge8.jpg')}
+            src={resolveContentImage(siteContent.home.counseling.backgroundImage)}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/35" />
 
@@ -407,7 +407,7 @@ function CounselingSection() {
               <img
                 alt="LP 103 vision"
                 className="h-full min-h-[18rem] w-full object-cover"
-                src={asset('/images/vision.jpg')}
+                src={resolveContentImage(siteContent.home.counseling.image)}
               />
             </div>
           </div>

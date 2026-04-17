@@ -1,5 +1,5 @@
 import { siteContent } from '../content/siteContent'
-import { asset, givingOptions } from '../lib/siteData'
+import { givingOptions } from '../lib/siteData'
 
 export function GivingPage() {
   return (
@@ -10,7 +10,7 @@ export function GivingPage() {
             <img
               alt="Giving hero"
               className="h-[24rem] w-full object-cover"
-              src={asset('/gallery/bridge11.jpg')}
+              src={siteContent.giving.heroImage}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-bridge-dark/75 via-bridge-dark/20 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-8 text-center text-white sm:p-12">

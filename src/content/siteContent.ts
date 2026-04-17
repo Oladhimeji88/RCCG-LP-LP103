@@ -1,5 +1,14 @@
 // Edit this file to update the website's content in one place.
 // Change names, links, address, events, page copy, contact info, and major section text here.
+import {
+  picture1,
+  picture2,
+  picture3,
+  picture4,
+  picture5,
+  picture6,
+  picture7,
+} from './pictureAssets'
 
 const churchName = 'Province 103 Youth, LP 103'
 const shortName = 'LP 103'
@@ -23,6 +32,7 @@ export const siteContent = {
   },
   navigation: {
     items: [
+      { label: 'Home', href: '/' },
       { label: 'Connect', href: '/connect' },
       { label: 'Zones', href: '/branches' },
       { label: 'About Us', href: '/about' },
@@ -71,7 +81,7 @@ export const siteContent = {
           description:
             `Join the ${shortName} family for worship, the Word, prayer, and community.`,
           location: address,
-          image: '/gallery/bridge1.png',
+          image: picture1,
         },
         {
           id: 2,
@@ -81,7 +91,7 @@ export const siteContent = {
           description:
             'A focused midweek moment for Bible teaching, prayer, and spiritual refreshment.',
           location: address,
-          image: '/gallery/bridge2.png',
+          image: picture2,
         },
         {
           id: 3,
@@ -91,7 +101,7 @@ export const siteContent = {
           description:
             'Get updates on fellowships, youth hangouts, prayer moments, and special gatherings.',
           location: 'Use the Connect page for the latest event details.',
-          image: '/gallery/bridge3.png',
+          image: picture3,
         },
       ],
     },
@@ -101,7 +111,7 @@ export const siteContent = {
       serviceName: 'Streams, congresses and special services',
       subtitle:
         'Follow official RCCG and YAYA channels for current live services, congresses, and youth-focused gatherings.',
-      previewImage: '/livescream/livestream.png',
+      previewImage: picture4,
       primaryCta: 'Watch Live',
       secondaryCta: 'YouTube Channel',
     },
@@ -125,8 +135,7 @@ export const siteContent = {
             'RCCG teaches that the Scriptures were written by holy men as they were inspired by the Holy Spirit, so LP 103 gives the Word a central place in every gathering.',
           schedule: 'Weekly study rhythms',
           location: address,
-          image:
-            'https://res.cloudinary.com/ducds3dmu/image/upload/v1757115358/udxz9bnwqj2tftp7ttnd.jpg',
+          image: picture5,
         },
         {
           title: 'Prayer and Holiness',
@@ -134,8 +143,7 @@ export const siteContent = {
             "The RCCG mission calls believers to live in holiness and carry God's presence everywhere, so prayer remains one of the strongest cultures shaping LP 103.",
           schedule: 'Weekly prayer gatherings and special prayer calls',
           location: address,
-          image:
-            'https://res.cloudinary.com/ducds3dmu/image/upload/v1757115383/mmzxfpzq6zx5qiidap8i.jpg',
+          image: picture6,
         },
         {
           title: 'Witness and Outreach',
@@ -143,8 +151,7 @@ export const siteContent = {
             'From Go A Fishing to Vision 2032, RCCG keeps evangelism at the center. LP 103 exists to raise young believers who live and speak the gospel boldly.',
           schedule: 'Seasonal outreaches and community action',
           location: address,
-          image:
-            'https://res.cloudinary.com/ducds3dmu/image/upload/v1757115413/svfx1nqtxo5qmgqwbsjf.jpg',
+          image: picture7,
         },
       ],
     },
@@ -192,7 +199,7 @@ export const siteContent = {
           label: 'Our history',
           description:
             'RCCG began in Lagos in 1952 under Pa Josiah Akindayomi and has grown into a worldwide movement of churches and ministries.',
-          image: '/gallery/bridge1.png',
+          image: picture1,
           link: 'history',
         },
         {
@@ -201,7 +208,7 @@ export const siteContent = {
           label: 'Global footprint',
           description:
             'RCCG says the church now serves more than 50,000 parishes across 197 countries and territories.',
-          image: '/gallery/bridge2.png',
+          image: picture2,
           link: 'rccgHome',
         },
         {
@@ -210,7 +217,7 @@ export const siteContent = {
           label: 'YAYA Global',
           description:
             'RCCG YAYA focuses on discipleship, prayer, training, collaboration, and leadership development for young adults and youth.',
-          image: '/gallery/bridge3.png',
+          image: picture3,
           link: 'yayaGlobal',
         },
         {
@@ -219,7 +226,7 @@ export const siteContent = {
           label: 'Evangelism',
           description:
             'The Go A Fishing emphasis and Vision 2032 call believers to become intentional witnesses who reach souls everywhere.',
-          image: '/gallery/bridge4.png',
+          image: picture4,
           link: 'goLifestyle',
         },
       ],
@@ -230,6 +237,8 @@ export const siteContent = {
         'RCCG YAYA reminds young people that it is okay not to have all the answers. LP 103 wants to offer a listening ear, prayerful support, and wise next steps whenever life feels heavy.',
       primaryCta: 'Go to counseling',
       secondaryCta: 'YAYA counselor',
+      backgroundImage: picture6,
+      image: picture7,
     },
     contact: {
       title: 'How can we help?',
@@ -254,6 +263,7 @@ export const siteContent = {
       directionTitle: 'YAYA Direction',
       directionText:
         'RCCG YAYA highlights discipleship, prayer, training, leadership development, collaboration, and even digital church planting as part of the church\'s youth movement.',
+      image: picture5,
     },
     history: {
       title: 'RCCG History',
@@ -265,28 +275,28 @@ export const siteContent = {
           year: '1952',
           text:
             'RCCG began as the Glory of God Fellowship in Ebute-Metta, Lagos, and soon became The Redeemed Christian Church of God.',
-          image: '/gallery/bridge1.png',
+          image: picture4,
         },
         {
           id: 2,
           year: '1973',
           text:
             'Pastor E.A. Adeboye joined the church as a young university lecturer, marking the beginning of a new chapter in its expansion.',
-          image: '/gallery/bridge2.png',
+          image: picture5,
         },
         {
           id: 3,
           year: '1981',
           text:
             'Pastor E.A. Adeboye became General Overseer, and the church entered a season of rapid local and global growth.',
-          image: '/gallery/bridge3.png',
+          image: picture6,
         },
         {
           id: 4,
           year: 'Today',
           text:
             'RCCG reports more than 50,000 parishes in 197 countries and territories, with youth movements like YAYA mobilizing discipleship and outreach across generations.',
-          image: '/gallery/bridge4.png',
+          image: picture7,
         },
       ],
     },
@@ -299,19 +309,19 @@ export const siteContent = {
           id: 1,
           name: 'Pastor E.A. Adeboye',
           position: 'General Overseer, RCCG Worldwide',
-          image: '/brand/rccg-logo.png',
+          image: picture1,
         },
         {
           id: 2,
           name: 'Pastor Babasola Olukoya',
           position: 'Pastor in Charge, Young Adults and Youth Affairs',
-          image: 'https://rccgyayaglobal.org/images/leaders/iyp.jpeg',
+          image: picture2,
         },
         {
           id: 3,
           name: 'Pastor Sola Akinbile',
           position: 'Assistant Pastor in Charge, Young Adults and Youth Affairs',
-          image: 'https://rccgyayaglobal.org/images/leaders/sola.jpeg',
+          image: picture3,
         },
       ],
     },
@@ -383,10 +393,10 @@ export const siteContent = {
     description:
       'This page replaces copied local department listings with ministry areas grounded in official RCCG beliefs, youth discipleship, prayer, outreach, and service.',
     showcaseImages: [
-      '/department/1.png',
-      '/department/2.png',
-      '/department/3.png',
-      '/department/4.png',
+      picture1,
+      picture2,
+      picture3,
+      picture4,
     ],
     items: [
       {
@@ -398,7 +408,7 @@ export const siteContent = {
         leader: {
           name: 'LP 103 Team',
           position: 'Bible and discipleship leads',
-          image: '/brand/rccg-logo.png',
+          image: picture1,
         },
       },
       {
@@ -410,7 +420,7 @@ export const siteContent = {
         leader: {
           name: 'LP 103 Team',
           position: 'Prayer and care coordinators',
-          image: '/brand/rccg-logo.png',
+          image: picture2,
         },
       },
       {
@@ -422,7 +432,7 @@ export const siteContent = {
         leader: {
           name: 'LP 103 Team',
           position: 'Outreach coordinators',
-          image: '/brand/rccg-logo.png',
+          image: picture3,
         },
       },
       {
@@ -434,7 +444,7 @@ export const siteContent = {
         leader: {
           name: 'LP 103 Team',
           position: 'Creative and media coordinators',
-          image: '/brand/rccg-logo.png',
+          image: picture4,
         },
       },
       {
@@ -446,7 +456,7 @@ export const siteContent = {
         leader: {
           name: 'LP 103 Team',
           position: 'Training and mentoring leads',
-          image: '/brand/rccg-logo.png',
+          image: picture5,
         },
       },
       {
@@ -458,7 +468,7 @@ export const siteContent = {
         leader: {
           name: 'LP 103 Team',
           position: 'Fellowship coordinators',
-          image: '/brand/rccg-logo.png',
+          image: picture6,
         },
       },
     ],
@@ -472,6 +482,7 @@ export const siteContent = {
       primaryCta: 'Request Support',
       secondaryCta: 'Email Us',
       tertiaryCta: 'YAYA Counselor',
+      image: picture7,
     },
     help: {
       title: 'How We Can Help',
@@ -533,6 +544,7 @@ export const siteContent = {
     title: 'Give with clarity and confidence',
     subtitle:
       'We removed unverified bank details and now point you to the safest current giving routes.',
+    heroImage: picture5,
     options: [
       {
         id: 1,
@@ -564,6 +576,7 @@ export const siteContent = {
     ],
   },
   footer: {
+    backgroundImage: picture7,
     quickLinks: [
       {
         label: 'Official RCCG',

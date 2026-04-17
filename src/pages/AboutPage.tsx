@@ -100,7 +100,7 @@ export function AboutPage() {
               <img
                 alt="LP 103 community"
                 className="h-full min-h-[20rem] w-full object-cover"
-                src={asset('/gallery/bridge1.png')}
+                src={siteContent.about.missionDirection.image}
               />
             </div>
           </div>
@@ -167,31 +167,22 @@ export function AboutPage() {
           />
 
           <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
-            {pastorates.map((pastor) => {
-              const isLogoCard = pastor.image.includes('/brand/')
-
-              return (
-                <article
-                  className="rounded-[3px] bg-white p-5 text-center shadow-soft"
-                  key={pastor.id}
-                >
-                  <img
-                    alt={pastor.name}
-                    className={cn(
-                      'mx-auto h-72 w-full rounded-[3px]',
-                      isLogoCard
-                        ? 'bg-stone-50 object-contain p-8'
-                        : 'object-cover',
-                    )}
-                    src={pastor.image}
-                  />
-                  <div className="mt-5 space-y-2">
-                    <h3 className="text-xl font-semibold text-slate-900">{pastor.name}</h3>
-                    <p className="text-slate-600">{pastor.position}</p>
-                  </div>
-                </article>
-              )
-            })}
+            {pastorates.map((pastor) => (
+              <article
+                className="rounded-[3px] bg-white p-5 text-center shadow-soft"
+                key={pastor.id}
+              >
+                <img
+                  alt={pastor.name}
+                  className="mx-auto h-72 w-full rounded-[3px] object-cover"
+                  src={pastor.image}
+                />
+                <div className="mt-5 space-y-2">
+                  <h3 className="text-xl font-semibold text-slate-900">{pastor.name}</h3>
+                  <p className="text-slate-600">{pastor.position}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -219,7 +210,7 @@ export function AboutPage() {
               >
                 <img
                   alt={department.leader.name}
-                  className="mb-4 h-40 w-full rounded-[3px] bg-stone-50 object-contain p-6"
+                  className="mb-4 h-40 w-full rounded-[3px] object-cover"
                   src={department.leader.image}
                 />
                 <p className="text-sm font-semibold uppercase tracking-[0.18em] text-bridge-orange">

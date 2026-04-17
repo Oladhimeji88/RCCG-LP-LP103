@@ -111,7 +111,7 @@ export function DepartmentsPage() {
                         <div className="flex items-center gap-4 sm:flex-col sm:text-right">
                           <img
                             alt={department.leader.name}
-                            className="h-20 w-20 rounded-full bg-stone-50 object-contain p-3"
+                            className="h-20 w-20 rounded-full object-cover"
                             src={department.leader.image}
                           />
                           <div>

@@ -1,5 +1,5 @@
 import { siteContent } from '../content/siteContent'
-import { asset, footerContacts, quickLinks } from '../lib/siteData'
+import { footerContacts, quickLinks } from '../lib/siteData'
 
 export function SiteFooter() {
   return (
@@ -9,7 +9,7 @@ export function SiteFooter() {
           alt=""
           aria-hidden
           className="h-full w-full object-cover"
-          src={asset('/gallery/bridgefooter.png')}
+          src={siteContent.footer.backgroundImage}
         />
       </div>
 
