@@ -16,7 +16,18 @@ const shortName = 'LP 103'
 const email = 'rccglp103yaya@gmail.com'
 const address = '11 Odu Onikosi Avenue, opposite LASUED, Otto Awori, Lagos State'
 
-export const siteContent = {
+type WidenLiteral<T> =
+  T extends string ? string
+    : T extends number ? number
+      : T extends boolean ? boolean
+        : T
+
+type DeepWiden<T> =
+  T extends readonly (infer Item)[] ? DeepWiden<Item>[]
+    : T extends object ? { -readonly [Key in keyof T]: DeepWiden<T[Key]> }
+      : WidenLiteral<T>
+
+const defaultSiteContent = {
   brand: {
     churchName,
     shortName,
@@ -604,4 +615,6 @@ export const siteContent = {
   },
 } as const
 
-export type SiteContent = typeof siteContent
+export type SiteContent = DeepWiden<typeof defaultSiteContent>
+
+export const siteContent: SiteContent = defaultSiteContent
