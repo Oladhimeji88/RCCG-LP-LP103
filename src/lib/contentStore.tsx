@@ -27,7 +27,7 @@ const JOBS_CONTENT_EVENT = 'lp103:jobs-content-updated'
 const ADMIN_SESSION_EVENT = 'lp103:admin-session-updated'
 
 export const ADMIN_EMAIL = 'rccglp103yaya@gmail.com'
-const ADMIN_PASSWORD = 'jesusislove4'
+const ADMIN_PASSWORD = 'BV9a5aCQWrAZVQzJ'
 
 const ContentVersionContext = createContext(0)
 

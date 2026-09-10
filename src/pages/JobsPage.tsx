@@ -65,72 +65,54 @@ export function JobsPage() {
       </section>
 
       <section className="section-space">
-        <div className="page-shell grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
-          <div className="space-y-6">
-            {jobsContent.months.length ? (
-              <>
-                <div className="flex flex-wrap gap-3">
-                  {jobsContent.months.map((month) => (
-                    <button
-                      className={cn(
-                        'rounded-lg border px-5 py-3 text-sm font-semibold transition',
-                        activeMonth?.id === month.id
-                          ? 'border-bridge-orange bg-orange-50 text-bridge-orange'
-                          : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50',
-                      )}
-                      key={month.id}
-                      onClick={() => setActiveMonthId(month.id)}
-                      type="button"
-                    >
-                      {month.label}
-                    </button>
-                  ))}
-                </div>
+        <div className="page-shell space-y-6">
+          {jobsContent.months.length ? (
+            <>
+              <div className="flex flex-wrap gap-3">
+                {jobsContent.months.map((month) => (
+                  <button
+                    className={cn(
+                      'rounded-lg border px-5 py-3 text-sm font-semibold transition',
+                      activeMonth?.id === month.id
+                        ? 'border-bridge-orange bg-orange-50 text-bridge-orange'
+                        : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50',
+                    )}
+                    key={month.id}
+                    onClick={() => setActiveMonthId(month.id)}
+                    type="button"
+                  >
+                    {month.label}
+                  </button>
+                ))}
+              </div>
 
-                {activeMonth ? (
-                  <div className="rounded-[3px] border border-slate-200 bg-white p-6 shadow-soft">
-                    <div className="flex flex-col gap-5 border-b border-slate-200 pb-5 lg:flex-row lg:items-end lg:justify-between">
-                      <div className="space-y-3">
-                        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-bridge-orange">
-                          {activeMonth.label}
-                        </p>
-                        <h2 className="text-3xl font-semibold text-slate-900">
-                          Top 10 Lagos job roles
-                        </h2>
-                        <p className="max-w-3xl text-base leading-7 text-slate-600">
-                          {activeMonth.note}
-                        </p>
-                      </div>
-
-                      <div className="rounded-[3px] bg-slate-50 px-4 py-3 text-sm text-slate-600">
-                        Last updated: {activeMonth.lastUpdated}
-                      </div>
+              {activeMonth ? (
+                <div className="rounded-[3px] border border-slate-200 bg-white p-6 shadow-soft">
+                  <div className="flex flex-col gap-5 border-b border-slate-200 pb-5 lg:flex-row lg:items-end lg:justify-between">
+                    <div className="space-y-3">
+                      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-bridge-orange">
+                        {activeMonth.label}
+                      </p>
+                      <h2 className="text-3xl font-semibold text-slate-900">
+                        Top 10 Lagos job roles
+                      </h2>
+                      <p className="max-w-3xl text-base leading-7 text-slate-600">
+                        {activeMonth.note}
+                      </p>
                     </div>
 
-                    <p className="mt-5 text-sm leading-6 text-slate-500">
-                      {jobsContent.sampleNotice}
-                    </p>
+                    <div className="rounded-[3px] bg-slate-50 px-4 py-3 text-sm text-slate-600">
+                      Last updated: {activeMonth.lastUpdated}
+                    </div>
                   </div>
-                ) : null}
-              </>
-            ) : (
-              <div className="rounded-[3px] border border-dashed border-slate-300 bg-white p-6 text-slate-600 shadow-soft">
-                No jobs have been added yet. Sign in through the hidden admin URL to add a month and job entries.
-              </div>
-            )}
-          </div>
-
-          <aside className="rounded-[3px] bg-bridge-dark p-6 text-white shadow-soft">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/55">
-              {jobsContent.updateTitle}
-            </p>
-            <p className="mt-4 text-lg leading-8 text-white/80">
-              {jobsContent.updateDescription}
-            </p>
-            <div className="mt-5 rounded-[3px] bg-white/10 px-4 py-3 font-mono text-sm text-white">
-              {jobsContent.updatePath}
+                </div>
+              ) : null}
+            </>
+          ) : (
+            <div className="rounded-[3px] border border-dashed border-slate-300 bg-white p-6 text-slate-600 shadow-soft">
+              No jobs have been added yet. Check back soon.
             </div>
-          </aside>
+          )}
         </div>
       </section>
 

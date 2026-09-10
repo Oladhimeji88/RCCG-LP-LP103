@@ -61,7 +61,7 @@ function RouteFallback() {
             That page could not be found.
           </h1>
           <p className="max-w-2xl text-lg leading-8 text-slate-600">
-            If you are trying to open the hidden editor, use `/lp103-admin`.
+            The page you're looking for may have moved or no longer exists.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
@@ -69,12 +69,6 @@ function RouteFallback() {
               to="/"
             >
               Go Home
-            </Link>
-            <Link
-              className="btn-secondary justify-center"
-              to="/lp103-admin"
-            >
-              Open Admin
             </Link>
           </div>
         </div>

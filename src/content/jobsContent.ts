@@ -26,9 +26,6 @@ export type JobsContent = {
   eyebrow: string
   title: string
   description: string
-  updateTitle: string
-  updateDescription: string
-  updatePath: string
   cadenceLabel: string
   sampleNotice: string
   months: LagosJobsMonth[]
@@ -39,10 +36,6 @@ export const jobsContent: JobsContent = {
   title: 'Top Lagos job roles tracked month by month.',
   description:
     'This page gives LP 103 a simple monthly jobs board for Lagos. Each month keeps 10 ranked roles with demand scores, hiring movement, work mode, and quick notes so the list stays easy to update.',
-  updateTitle: 'Where to update this page',
-  updateDescription:
-    'Edit the jobs content file below, replace the sample monthly entries with your verified data, and add a new month whenever you are ready.',
-  updatePath: 'src/content/jobsContent.ts',
   cadenceLabel: 'Monthly top 10 jobs tracker',
   sampleNotice:
     'The entries below are starter tracking data for the new jobs section. Replace them with your own verified monthly Lagos job data whenever you want.',

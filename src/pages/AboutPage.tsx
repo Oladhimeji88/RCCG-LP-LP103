@@ -115,43 +115,41 @@ export function AboutPage() {
             title={siteContent.about.history.title}
           />
 
-          <div className="rounded-[3px] border border-slate-200 bg-white p-6 shadow-soft sm:p-8">
-            <div className="grid gap-8 lg:grid-cols-[auto_1fr]">
-              <div className="flex flex-wrap gap-3 lg:flex-col">
-                {historyEntries.map((entry) => (
-                  <button
-                    className={cn(
-                      'rounded-full px-5 py-3 text-sm font-semibold transition',
-                      activeHistory === entry.id
-                        ? 'bg-bridge-orange text-white shadow-lg shadow-orange-200'
-                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200',
-                    )}
-                    key={entry.id}
-                    onClick={() => setActiveHistory(entry.id)}
-                    type="button"
-                  >
-                    {entry.year}
-                  </button>
-                ))}
+          <div className="space-y-8 rounded-[3px] border border-slate-200 bg-white p-6 shadow-soft sm:p-8">
+            <div className="flex flex-wrap gap-3">
+              {historyEntries.map((entry) => (
+                <button
+                  className={cn(
+                    'rounded-full px-5 py-3 text-sm font-semibold transition',
+                    activeHistory === entry.id
+                      ? 'bg-bridge-orange text-white shadow-lg shadow-orange-200'
+                      : 'bg-slate-100 text-slate-700 hover:bg-slate-200',
+                  )}
+                  key={entry.id}
+                  onClick={() => setActiveHistory(entry.id)}
+                  type="button"
+                >
+                  {entry.year}
+                </button>
+              ))}
+            </div>
+
+            <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+              <div className="space-y-4">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-bridge-orange">
+                  {selectedHistory.year}
+                </p>
+                <p className="text-2xl font-medium leading-tight text-slate-900">
+                  {selectedHistory.text}
+                </p>
               </div>
 
-              <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-                <div className="space-y-4">
-                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-bridge-orange">
-                    {selectedHistory.year}
-                  </p>
-                  <p className="text-2xl font-medium leading-tight text-slate-900">
-                    {selectedHistory.text}
-                  </p>
-                </div>
-
-                <div className="overflow-hidden rounded-[2rem]">
-                  <img
-                    alt={`RCCG LP 103 history from ${selectedHistory.year}`}
-                    className="h-full min-h-[18rem] w-full object-cover"
-                    src={selectedHistory.image}
-                  />
-                </div>
+              <div className="aspect-[4/3] overflow-hidden rounded-[2rem]">
+                <img
+                  alt={`RCCG LP 103 history from ${selectedHistory.year}`}
+                  className="h-full w-full object-cover"
+                  src={selectedHistory.image}
+                />
               </div>
             </div>
           </div>
