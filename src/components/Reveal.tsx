@@ -13,12 +13,11 @@ const prefersReducedMotion = () =>
 
 export function Reveal({ children, className, delay = 0 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(prefersReducedMotion)
 
   useEffect(() => {
     if (prefersReducedMotion()) {
-      setVisible(true)
-      return
+      return undefined
     }
 
     const node = ref.current
