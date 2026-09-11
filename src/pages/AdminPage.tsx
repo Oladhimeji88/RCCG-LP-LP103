@@ -206,8 +206,6 @@ const buildEmptyJob = (rank: number): LagosJobEntry => ({
   rank,
   title: 'New job title',
   sector: 'Sector',
-  hiringScore: 75,
-  monthlyChange: 1,
   workMode: 'Hybrid',
   salaryBand: 'Add salary band',
   summary: 'Add job summary',
@@ -1080,18 +1078,6 @@ export function AdminPage() {
                           />
                         </label>
 
-                        <label className="space-y-2">
-                          <span className="text-sm font-semibold text-slate-700">Hiring Score</span>
-                          <input
-                            className="w-full rounded-[3px] border border-slate-200 px-4 py-3 outline-none transition focus:border-bridge-orange"
-                            max={100}
-                            min={0}
-                            onChange={(event) => updateJobField(activeMonthIndex, jobIndex, 'hiringScore', Number(event.target.value || 0))}
-                            type="number"
-                            value={job.hiringScore}
-                          />
-                        </label>
-
                         <label className="space-y-2 lg:col-span-2">
                           <span className="text-sm font-semibold text-slate-700">Job Title</span>
                           <input
@@ -1109,16 +1095,6 @@ export function AdminPage() {
                             onChange={(event) => updateJobField(activeMonthIndex, jobIndex, 'sector', event.target.value)}
                             type="text"
                             value={job.sector}
-                          />
-                        </label>
-
-                        <label className="space-y-2">
-                          <span className="text-sm font-semibold text-slate-700">Monthly Change</span>
-                          <input
-                            className="w-full rounded-[3px] border border-slate-200 px-4 py-3 outline-none transition focus:border-bridge-orange"
-                            onChange={(event) => updateJobField(activeMonthIndex, jobIndex, 'monthlyChange', Number(event.target.value || 0))}
-                            type="number"
-                            value={job.monthlyChange}
                           />
                         </label>
 

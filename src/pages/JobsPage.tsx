@@ -5,23 +5,6 @@ import { SectionHeading } from '../components/SectionHeading'
 import { useManagedJobsContent } from '../lib/contentStore'
 import { cn } from '../lib/utils'
 
-const scoreBarClassName = (score: number) => {
-  if (score >= 90) {
-    return 'bg-emerald-500'
-  }
-
-  if (score >= 80) {
-    return 'bg-bridge-orange'
-  }
-
-  return 'bg-amber-500'
-}
-
-const changeBadgeClassName = (change: number) =>
-  change > 0
-    ? 'bg-emerald-50 text-emerald-700'
-    : 'bg-slate-100 text-slate-600'
-
 export function JobsPage() {
   const jobsContent = useManagedJobsContent()
   const [activeMonthId, setActiveMonthId] = useState(jobsContent.months[0]?.id ?? '')
@@ -124,18 +107,8 @@ export function JobsPage() {
                 className="flex h-full flex-col rounded-[3px] border border-slate-200 bg-white p-5 shadow-soft"
                 key={job.id}
               >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-[3px] bg-orange-50 text-lg font-bold text-bridge-orange">
-                    {job.rank}
-                  </div>
-                  <div
-                    className={cn(
-                      'rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em]',
-                      changeBadgeClassName(job.monthlyChange),
-                    )}
-                  >
-                    {job.monthlyChange > 0 ? `+${job.monthlyChange}` : job.monthlyChange} pts
-                  </div>
+                <div className="flex h-11 w-11 items-center justify-center rounded-[3px] bg-orange-50 text-lg font-bold text-bridge-orange">
+                  {job.rank}
                 </div>
 
                 <div className="mt-5 space-y-3">
@@ -161,19 +134,6 @@ export function JobsPage() {
                   <div className="flex items-center justify-between gap-4">
                     <span>Salary band</span>
                     <span className="font-medium text-right text-slate-900">{job.salaryBand}</span>
-                  </div>
-                </div>
-
-                <div className="mt-6 space-y-2">
-                  <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                    <span>Hiring score</span>
-                    <span>{job.hiringScore}/100</span>
-                  </div>
-                  <div className="h-2 rounded-full bg-slate-100">
-                    <div
-                      className={cn('h-2 rounded-full transition-all', scoreBarClassName(job.hiringScore))}
-                      style={{ width: `${job.hiringScore}%` }}
-                    />
                   </div>
                 </div>
               </article>

@@ -5,8 +5,6 @@ export type LagosJobEntry = {
   rank: number
   title: string
   sector: string
-  hiringScore: number
-  monthlyChange: number
   workMode: 'On-site' | 'Hybrid' | 'Remote'
   salaryBand: string
   summary: string
@@ -54,8 +52,6 @@ export const jobsContent: JobsContent = {
           rank: 1,
           title: 'Sales Executive',
           sector: 'Sales',
-          hiringScore: 95,
-          monthlyChange: 5,
           workMode: 'On-site',
           salaryBand: 'N250k - N450k / month',
           summary:
@@ -66,8 +62,6 @@ export const jobsContent: JobsContent = {
           rank: 2,
           title: 'Customer Support Specialist',
           sector: 'Customer Experience',
-          hiringScore: 92,
-          monthlyChange: 4,
           workMode: 'Hybrid',
           salaryBand: 'N180k - N320k / month',
           summary:
@@ -78,8 +72,6 @@ export const jobsContent: JobsContent = {
           rank: 3,
           title: 'Frontend Developer',
           sector: 'Technology',
-          hiringScore: 90,
-          monthlyChange: 3,
           workMode: 'Hybrid',
           salaryBand: 'N350k - N700k / month',
           summary:
@@ -90,8 +82,6 @@ export const jobsContent: JobsContent = {
           rank: 4,
           title: 'Digital Marketing Executive',
           sector: 'Marketing',
-          hiringScore: 88,
-          monthlyChange: 2,
           workMode: 'Hybrid',
           salaryBand: 'N220k - N420k / month',
           summary:
@@ -102,8 +92,6 @@ export const jobsContent: JobsContent = {
           rank: 5,
           title: 'Operations Officer',
           sector: 'Operations',
-          hiringScore: 86,
-          monthlyChange: 2,
           workMode: 'On-site',
           salaryBand: 'N200k - N380k / month',
           summary:
@@ -114,8 +102,6 @@ export const jobsContent: JobsContent = {
           rank: 6,
           title: 'Data Analyst',
           sector: 'Analytics',
-          hiringScore: 84,
-          monthlyChange: 3,
           workMode: 'Hybrid',
           salaryBand: 'N300k - N600k / month',
           summary:
@@ -126,8 +112,6 @@ export const jobsContent: JobsContent = {
           rank: 7,
           title: 'Account Officer',
           sector: 'Finance',
-          hiringScore: 82,
-          monthlyChange: 1,
           workMode: 'On-site',
           salaryBand: 'N220k - N400k / month',
           summary:
@@ -138,8 +122,6 @@ export const jobsContent: JobsContent = {
           rank: 8,
           title: 'Social Media Manager',
           sector: 'Media',
-          hiringScore: 80,
-          monthlyChange: 2,
           workMode: 'Hybrid',
           salaryBand: 'N180k - N350k / month',
           summary:
@@ -150,8 +132,6 @@ export const jobsContent: JobsContent = {
           rank: 9,
           title: 'HR Officer',
           sector: 'Human Resources',
-          hiringScore: 78,
-          monthlyChange: 1,
           workMode: 'On-site',
           salaryBand: 'N220k - N380k / month',
           summary:
@@ -162,8 +142,6 @@ export const jobsContent: JobsContent = {
           rank: 10,
           title: 'Business Development Associate',
           sector: 'Growth',
-          hiringScore: 76,
-          monthlyChange: 2,
           workMode: 'Hybrid',
           salaryBand: 'N220k - N420k / month',
           summary:
@@ -185,8 +163,6 @@ export const jobsContent: JobsContent = {
           rank: 1,
           title: 'Customer Support Specialist',
           sector: 'Customer Experience',
-          hiringScore: 91,
-          monthlyChange: 4,
           workMode: 'Hybrid',
           salaryBand: 'N180k - N320k / month',
           summary:
@@ -197,8 +173,6 @@ export const jobsContent: JobsContent = {
           rank: 2,
           title: 'Sales Executive',
           sector: 'Sales',
-          hiringScore: 90,
-          monthlyChange: 3,
           workMode: 'On-site',
           salaryBand: 'N250k - N430k / month',
           summary:
@@ -209,8 +183,6 @@ export const jobsContent: JobsContent = {
           rank: 3,
           title: 'Digital Marketing Executive',
           sector: 'Marketing',
-          hiringScore: 87,
-          monthlyChange: 2,
           workMode: 'Hybrid',
           salaryBand: 'N220k - N400k / month',
           summary:
@@ -221,8 +193,6 @@ export const jobsContent: JobsContent = {
           rank: 4,
           title: 'Frontend Developer',
           sector: 'Technology',
-          hiringScore: 86,
-          monthlyChange: 2,
           workMode: 'Hybrid',
           salaryBand: 'N350k - N680k / month',
           summary:
@@ -233,8 +203,6 @@ export const jobsContent: JobsContent = {
           rank: 5,
           title: 'Operations Officer',
           sector: 'Operations',
-          hiringScore: 84,
-          monthlyChange: 1,
           workMode: 'On-site',
           salaryBand: 'N190k - N360k / month',
           summary:
@@ -245,8 +213,6 @@ export const jobsContent: JobsContent = {
           rank: 6,
           title: 'Data Analyst',
           sector: 'Analytics',
-          hiringScore: 82,
-          monthlyChange: 2,
           workMode: 'Hybrid',
           salaryBand: 'N300k - N580k / month',
           summary:
@@ -257,8 +223,6 @@ export const jobsContent: JobsContent = {
           rank: 7,
           title: 'Administrative Officer',
           sector: 'Administration',
-          hiringScore: 80,
-          monthlyChange: 1,
           workMode: 'On-site',
           salaryBand: 'N170k - N300k / month',
           summary:
@@ -269,8 +233,6 @@ export const jobsContent: JobsContent = {
           rank: 8,
           title: 'Account Officer',
           sector: 'Finance',
-          hiringScore: 79,
-          monthlyChange: 1,
           workMode: 'On-site',
           salaryBand: 'N210k - N390k / month',
           summary:
@@ -281,8 +243,6 @@ export const jobsContent: JobsContent = {
           rank: 9,
           title: 'UI Designer',
           sector: 'Design',
-          hiringScore: 77,
-          monthlyChange: 2,
           workMode: 'Remote',
           salaryBand: 'N280k - N500k / month',
           summary:
@@ -293,8 +253,6 @@ export const jobsContent: JobsContent = {
           rank: 10,
           title: 'HR Officer',
           sector: 'Human Resources',
-          hiringScore: 75,
-          monthlyChange: 1,
           workMode: 'On-site',
           salaryBand: 'N210k - N360k / month',
           summary:
@@ -316,8 +274,6 @@ export const jobsContent: JobsContent = {
           rank: 1,
           title: 'Sales Executive',
           sector: 'Sales',
-          hiringScore: 93,
-          monthlyChange: 4,
           workMode: 'On-site',
           salaryBand: 'N240k - N420k / month',
           summary:
@@ -328,8 +284,6 @@ export const jobsContent: JobsContent = {
           rank: 2,
           title: 'Operations Officer',
           sector: 'Operations',
-          hiringScore: 89,
-          monthlyChange: 3,
           workMode: 'On-site',
           salaryBand: 'N190k - N350k / month',
           summary:
@@ -340,8 +294,6 @@ export const jobsContent: JobsContent = {
           rank: 3,
           title: 'Customer Support Specialist',
           sector: 'Customer Experience',
-          hiringScore: 88,
-          monthlyChange: 3,
           workMode: 'Hybrid',
           salaryBand: 'N170k - N300k / month',
           summary:
@@ -352,8 +304,6 @@ export const jobsContent: JobsContent = {
           rank: 4,
           title: 'Business Development Associate',
           sector: 'Growth',
-          hiringScore: 86,
-          monthlyChange: 3,
           workMode: 'Hybrid',
           salaryBand: 'N210k - N400k / month',
           summary:
@@ -364,8 +314,6 @@ export const jobsContent: JobsContent = {
           rank: 5,
           title: 'Digital Marketing Executive',
           sector: 'Marketing',
-          hiringScore: 84,
-          monthlyChange: 2,
           workMode: 'Hybrid',
           salaryBand: 'N210k - N390k / month',
           summary:
@@ -376,8 +324,6 @@ export const jobsContent: JobsContent = {
           rank: 6,
           title: 'Frontend Developer',
           sector: 'Technology',
-          hiringScore: 82,
-          monthlyChange: 2,
           workMode: 'Hybrid',
           salaryBand: 'N340k - N650k / month',
           summary:
@@ -388,8 +334,6 @@ export const jobsContent: JobsContent = {
           rank: 7,
           title: 'Logistics Coordinator',
           sector: 'Supply Chain',
-          hiringScore: 80,
-          monthlyChange: 1,
           workMode: 'On-site',
           salaryBand: 'N180k - N320k / month',
           summary:
@@ -400,8 +344,6 @@ export const jobsContent: JobsContent = {
           rank: 8,
           title: 'Account Officer',
           sector: 'Finance',
-          hiringScore: 78,
-          monthlyChange: 1,
           workMode: 'On-site',
           salaryBand: 'N200k - N370k / month',
           summary:
@@ -412,8 +354,6 @@ export const jobsContent: JobsContent = {
           rank: 9,
           title: 'Social Media Manager',
           sector: 'Media',
-          hiringScore: 77,
-          monthlyChange: 2,
           workMode: 'Hybrid',
           salaryBand: 'N170k - N330k / month',
           summary:
@@ -424,8 +364,6 @@ export const jobsContent: JobsContent = {
           rank: 10,
           title: 'HR Officer',
           sector: 'Human Resources',
-          hiringScore: 74,
-          monthlyChange: 1,
           workMode: 'On-site',
           salaryBand: 'N200k - N350k / month',
           summary:
