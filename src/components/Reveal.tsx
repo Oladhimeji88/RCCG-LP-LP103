@@ -40,15 +40,13 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
     return () => observer.disconnect()
   }, [])
 
-  const Tag = as
-
   return (
-    <Tag
+    <div
       className={cn('opacity-0', visible && 'animate-fade-up', className)}
       ref={ref}
       style={visible && delay ? { animationDelay: `${delay}ms` } : undefined}
     >
       {children}
-    </Tag>
+    </div>
   )
 }
