@@ -116,6 +116,36 @@ const defaultSiteContent = {
           location: 'Use the Connect page for the latest event details.',
           image: picture3,
         },
+        {
+          id: 4,
+          label: 'RCCG YAYA Global',
+          title: 'International Youth Convention 2026: Heaven',
+          schedule: 'September 28 - October 3, 2026',
+          description:
+            'The flagship RCCG YAYA gathering for young adults and youth worldwide, themed "Heaven," with registration open now.',
+          location: 'Redemption City, Lagos-Ibadan Expressway, Ogun State',
+          image: picture5,
+        },
+        {
+          id: 5,
+          label: 'RCCG YAYA Global',
+          title: 'RCCG 73rd Annual Convention: The Overcomer',
+          schedule: 'August 4 (7 days) - confirm year via YAYA Global',
+          description:
+            'The wider RCCG family gathers at Redemption City for a week of ministration, worship, and impartation.',
+          location: 'Redemption City, Lagos-Ibadan Expressway, Ogun State',
+          image: picture6,
+        },
+        {
+          id: 6,
+          label: 'RCCG YAYA Global',
+          title: 'Redeemed Initiative for Skills and Empowerment (RISE) 29',
+          schedule: 'September 15 (14 days) - confirm year via YAYA Global',
+          description:
+            'A skills-development and empowerment program for youth and young adults hosted at The Youth\'s Place.',
+          location: 'The Youth\'s Place, Redemption City, Ogun State',
+          image: picture4,
+        },
       ],
     },
     livestream: {
