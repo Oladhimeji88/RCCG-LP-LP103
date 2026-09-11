@@ -1,6 +1,7 @@
+import { Gift, Radio } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { asset, ctaLinks, navItems } from '../lib/siteData'
+import { ctaLinks, navItems } from '../lib/siteData'
 import { cn } from '../lib/utils'
 
 export function SiteHeader() {
@@ -98,7 +99,7 @@ export function SiteHeader() {
               )}
               to={ctaLinks.giving}
             >
-              <img alt="" aria-hidden className="h-5 w-5" src={asset('/icons/login-icon.svg')} />
+              <Gift aria-hidden className="h-5 w-5" />
               Giving
             </Link>
             <a
@@ -107,7 +108,7 @@ export function SiteHeader() {
               rel="noreferrer"
               target="_blank"
             >
-              <img alt="" aria-hidden className="h-5 w-5" src={asset('/icons/signup-icon.svg')} />
+              <Radio aria-hidden className="h-5 w-5" />
               Watch Live
             </a>
           </div>
@@ -182,7 +183,7 @@ export function SiteHeader() {
 
             <div className="grid gap-3">
               <Link className="btn-secondary justify-center" to={ctaLinks.giving}>
-                <img alt="" aria-hidden className="h-5 w-5" src={asset('/icons/login-icon.svg')} />
+                <Gift aria-hidden className="h-5 w-5" />
                 Giving
               </Link>
               <a
@@ -191,7 +192,7 @@ export function SiteHeader() {
                 rel="noreferrer"
                 target="_blank"
               >
-                <img alt="" aria-hidden className="h-5 w-5" src={asset('/icons/signup-icon.svg')} />
+                <Radio aria-hidden className="h-5 w-5" />
                 Watch Live
               </a>
             </div>

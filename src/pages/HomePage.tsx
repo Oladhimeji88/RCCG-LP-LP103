@@ -57,7 +57,7 @@ function HeroSection() {
       <img
         alt="RCCG hero background"
         className="absolute inset-0 h-full w-full object-cover"
-        src={asset('/headers/home.jpg')}
+        src={heroImage}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-bridge-dark/60 via-bridge-dark/70 to-bridge-dark" />
 
@@ -87,7 +87,7 @@ function UpcomingEventsSection() {
         <SectionHeading
           action={
             <ButtonLink
-              iconSrc={asset('/icons/arrow-icon-9.svg')}
+              icon={ArrowRight}
               to="/connect"
             >
               {managedSiteContent.home.upcomingEvents.ctaLabel}
@@ -127,11 +127,11 @@ function UpcomingEventsSection() {
 
                 <div className="mt-6 space-y-3 border-t border-slate-200 pt-5 text-sm text-slate-600">
                   <div className="flex items-center gap-3">
-                    <img alt="" aria-hidden className="h-5 w-5" src={asset('/icons/calendar-icon.svg')} />
+                    <Calendar aria-hidden className="h-5 w-5" />
                     <span>{event.schedule}</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <img alt="" aria-hidden className="h-5 w-5" src={asset('/icons/location-icon.svg')} />
+                    <MapPin aria-hidden className="h-5 w-5" />
                     <span>{event.location}</span>
                   </div>
                 </div>
@@ -181,7 +181,7 @@ function LivestreamSection() {
             <div className="flex flex-wrap gap-3">
               <ButtonLink
                 external
-                iconSrc={asset('/icons/arrow-icon-9.svg')}
+                icon={ArrowRight}
                 to={ctaLinks.watchLive}
               >
                 {siteContent.home.livestream.primaryCta}
@@ -214,7 +214,7 @@ function MissionSection() {
 
           <div className="flex justify-center pt-2">
             <ButtonLink
-              iconSrc={asset('/icons/arrow-icon-1.svg')}
+              icon={ArrowRight}
               to="/about"
               variant="secondary"
             >
@@ -258,11 +258,11 @@ function ServicesSection() {
 
                 <div className="space-y-3 text-sm text-white/65">
                   <div className="flex items-center gap-3">
-                    <img alt="" aria-hidden className="h-5 w-5" src={asset('/icons/calendar-icon.svg')} />
+                    <Calendar aria-hidden className="h-5 w-5" />
                     <span>{service.schedule}</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <img alt="" aria-hidden className="h-5 w-5" src={asset('/icons/location-icon.svg')} />
+                    <MapPin aria-hidden className="h-5 w-5" />
                     <span>{service.location}</span>
                   </div>
                 </div>
@@ -284,7 +284,7 @@ function ResourcesSection() {
             action={
               <ButtonLink
                 external
-                iconSrc={asset('/icons/arrow-icon-9.svg')}
+                icon={ArrowRight}
                 to={ctaLinks.rccgHome}
               >
                 {siteContent.home.officialResources.ctaLabel}
@@ -329,7 +329,7 @@ function ResourcesSection() {
             action={
               <ButtonLink
                 external
-                iconSrc={asset('/icons/arrow-icon-9.svg')}
+                icon={ArrowRight}
                 to={ctaLinks.yayaGlobal}
               >
                 {siteContent.home.focusCards.ctaLabel}
@@ -369,7 +369,7 @@ function ResourcesSection() {
                     target="_blank"
                   >
                     Learn more
-                    <img alt="" aria-hidden className="h-3 w-4" src={asset('/icons/arrow-icon-9.svg')} />
+                    <ArrowRight aria-hidden className="h-3 w-4" />
                   </a>
                 </div>
               </article>
@@ -403,7 +403,7 @@ function CounselingSection() {
 
               <div className="flex flex-wrap gap-4">
                 <ButtonLink
-                  iconSrc={asset('/icons/arrow-icon-9.svg')}
+                  icon={ArrowRight}
                   to={ctaLinks.counseling}
                 >
                   {siteContent.home.counseling.primaryCta}
@@ -542,12 +542,7 @@ function ContactTeaserSection() {
             <div className="flex justify-center">
               <button className="btn-primary justify-center" type="submit">
                 <span>Send</span>
-                <img
-                  alt=""
-                  aria-hidden
-                  className="h-3 w-4 object-contain"
-                  src={asset('/icons/arrow-icon-9.svg')}
-                />
+                <ArrowRight aria-hidden className="h-3 w-4" />
               </button>
             </div>
           </form>

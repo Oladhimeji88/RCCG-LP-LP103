@@ -1,5 +1,6 @@
+import { Mail, MapPin, Phone } from 'lucide-react'
 import { useManagedSiteContent } from '../lib/contentStore'
-import { asset, quickLinks } from '../lib/siteData'
+import { quickLinks } from '../lib/siteData'
 
 export function SiteFooter() {
   const siteContent = useManagedSiteContent()
@@ -7,17 +8,17 @@ export function SiteFooter() {
     {
       label: 'Email',
       value: siteContent.brand.email,
-      icon: asset('/icons/email-icon.svg'),
+      icon: Mail,
     },
     {
       label: 'Location',
       value: siteContent.brand.address,
-      icon: asset('/icons/location-pin-icon.svg'),
+      icon: MapPin,
     },
     {
       label: 'Support',
       value: siteContent.brand.supportText,
-      icon: asset('/icons/phone-icon.svg'),
+      icon: Phone,
     },
   ]
 
@@ -58,7 +59,7 @@ export function SiteFooter() {
             <div className="space-y-4 text-white/80">
               {dynamicFooterContacts.map((contact) => (
                 <div className="flex items-center gap-3" key={contact.label}>
-                  <img alt="" aria-hidden className="h-5 w-5" src={contact.icon} />
+                  <contact.icon aria-hidden className="h-5 w-5" />
                   <span>{contact.value}</span>
                 </div>
               ))}
