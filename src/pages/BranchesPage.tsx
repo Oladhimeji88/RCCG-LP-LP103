@@ -1,7 +1,8 @@
+import { ArrowRight } from 'lucide-react'
 import { ButtonLink } from '../components/ButtonLink'
 import { SectionHeading } from '../components/SectionHeading'
 import { siteContent } from '../content/siteContent'
-import { asset, branches } from '../lib/siteData'
+import { branches } from '../lib/siteData'
 import { cn } from '../lib/utils'
 
 export function BranchesPage() {
@@ -15,7 +16,7 @@ export function BranchesPage() {
             description={siteContent.zones.description}
             action={
               <ButtonLink
-                iconSrc={asset('/icons/arrow-icon-9.svg')}
+                icon={ArrowRight}
                 to="/connect"
               >
                 {siteContent.zones.ctaLabel}

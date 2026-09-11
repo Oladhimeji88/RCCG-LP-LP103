@@ -1,8 +1,8 @@
+import { ArrowRight } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { ButtonLink } from '../components/ButtonLink'
 import { SectionHeading } from '../components/SectionHeading'
 import { useManagedJobsContent } from '../lib/contentStore'
-import { asset } from '../lib/siteData'
 import { cn } from '../lib/utils'
 
 const scoreBarClassName = (score: number) => {
@@ -54,7 +54,7 @@ export function JobsPage() {
             description={jobsContent.description}
             action={
               <ButtonLink
-                iconSrc={asset('/icons/arrow-icon-9.svg')}
+                icon={ArrowRight}
                 to="/connect"
               >
                 Request Career Support

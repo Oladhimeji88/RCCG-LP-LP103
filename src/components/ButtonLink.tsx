@@ -1,11 +1,13 @@
-import type { ReactNode } from 'react'
+import type { ComponentType, ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { cn } from '../lib/utils'
+
+type IconComponent = ComponentType<{ className?: string }>
 
 type ButtonLinkProps = {
   to: string
   children: ReactNode
-  iconSrc?: string
+  icon?: IconComponent
   variant?: 'primary' | 'secondary'
   className?: string
   external?: boolean
@@ -14,7 +16,7 @@ type ButtonLinkProps = {
 export function ButtonLink({
   to,
   children,
-  iconSrc,
+  icon: Icon,
   variant = 'primary',
   className,
   external,
@@ -27,9 +29,7 @@ export function ButtonLink({
   const content = (
     <>
       <span>{children}</span>
-      {iconSrc ? (
-        <img src={iconSrc} alt="" aria-hidden className="h-3 w-4 object-contain" />
-      ) : null}
+      {Icon ? <Icon className="h-4 w-4" /> : null}
     </>
   )
 

@@ -1,10 +1,10 @@
+import { ArrowRight } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ButtonLink } from '../components/ButtonLink'
 import { SectionHeading } from '../components/SectionHeading'
 import { siteContent } from '../content/siteContent'
 import {
-  asset,
   departments,
   departmentShowcaseImages,
   historyEntries,
