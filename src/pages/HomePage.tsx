@@ -214,7 +214,7 @@ function MissionSection() {
   return (
     <section className="section-space bg-white">
       <div className="page-shell text-center">
-        <div className="mx-auto max-w-5xl space-y-6">
+        <Reveal className="mx-auto max-w-5xl space-y-6">
           <div className="space-y-2 text-3xl font-medium leading-tight text-bridge-dark sm:text-4xl">
             {siteContent.home.mission.lines.map((line) => (
               <p key={line}>{line}</p>
@@ -230,7 +230,7 @@ function MissionSection() {
               {siteContent.home.mission.ctaLabel}
             </ButtonLink>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )
@@ -240,16 +240,19 @@ function ServicesSection() {
   return (
     <section className="section-space bg-black text-white">
       <div className="page-shell space-y-10">
-        <SectionHeading
-          description={siteContent.home.services.description}
-          invert
-          title={siteContent.home.services.title}
-        />
+        <Reveal>
+          <SectionHeading
+            description={siteContent.home.services.description}
+            invert
+            title={siteContent.home.services.title}
+          />
+        </Reveal>
 
         <div className="grid gap-6 lg:grid-cols-3">
-          {services.map((service) => (
-            <article
+          {services.map((service, index) => (
+            <Reveal
               className="group overflow-hidden rounded-[3px] border border-white/10 bg-white/5 transition hover:-translate-y-1 hover:bg-white/10"
+              delay={index * 100}
               key={service.title}
             >
               <div className="overflow-hidden">
@@ -276,7 +279,7 @@ function ServicesSection() {
                   </div>
                 </div>
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -289,24 +292,27 @@ function ResourcesSection() {
     <>
       <section className="section-space bg-stone-50">
         <div className="page-shell space-y-10">
-          <SectionHeading
-            action={
-              <ButtonLink
-                external
-                icon={ArrowRight}
-                to={ctaLinks.rccgHome}
-              >
-                {siteContent.home.officialResources.ctaLabel}
-              </ButtonLink>
-            }
-            description={siteContent.home.officialResources.description}
-            title={siteContent.home.officialResources.title}
-          />
+          <Reveal>
+            <SectionHeading
+              action={
+                <ButtonLink
+                  external
+                  icon={ArrowRight}
+                  to={ctaLinks.rccgHome}
+                >
+                  {siteContent.home.officialResources.ctaLabel}
+                </ButtonLink>
+              }
+              description={siteContent.home.officialResources.description}
+              title={siteContent.home.officialResources.title}
+            />
+          </Reveal>
 
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {audioSermons.map((resource) => (
-              <article
+            {audioSermons.map((resource, index) => (
+              <Reveal
                 className="rounded-[3px] border border-slate-200 bg-white p-6 shadow-soft"
+                delay={index * 100}
                 key={resource.id}
               >
                 <div className="space-y-4">
@@ -326,7 +332,7 @@ function ResourcesSection() {
                     Open resource
                   </a>
                 </div>
-              </article>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -334,24 +340,27 @@ function ResourcesSection() {
 
       <section className="section-space bg-white">
         <div className="page-shell space-y-10">
-          <SectionHeading
-            action={
-              <ButtonLink
-                external
-                icon={ArrowRight}
-                to={ctaLinks.yayaGlobal}
-              >
-                {siteContent.home.focusCards.ctaLabel}
-              </ButtonLink>
-            }
-            description={siteContent.home.focusCards.description}
-            title={siteContent.home.focusCards.title}
-          />
+          <Reveal>
+            <SectionHeading
+              action={
+                <ButtonLink
+                  external
+                  icon={ArrowRight}
+                  to={ctaLinks.yayaGlobal}
+                >
+                  {siteContent.home.focusCards.ctaLabel}
+                </ButtonLink>
+              }
+              description={siteContent.home.focusCards.description}
+              title={siteContent.home.focusCards.title}
+            />
+          </Reveal>
 
           <div className="grid gap-6 lg:grid-cols-2">
-            {sundaySermons.map((item) => (
-              <article
+            {sundaySermons.map((item, index) => (
+              <Reveal
                 className="overflow-hidden rounded-[3px] border border-slate-200 bg-white shadow-soft"
+                delay={index * 100}
                 key={item.id}
               >
                 <img
@@ -381,7 +390,7 @@ function ResourcesSection() {
                     <ArrowRight aria-hidden className="h-3 w-4" />
                   </a>
                 </div>
-              </article>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -394,7 +403,7 @@ function CounselingSection() {
   return (
     <section className="section-space text-white">
       <div className="page-shell">
-        <div className="relative overflow-hidden rounded-[2.5rem]">
+        <Reveal className="relative overflow-hidden rounded-[2.5rem]">
           <img
             alt="Counseling background"
             className="absolute inset-0 h-full w-full object-cover"
@@ -435,7 +444,7 @@ function CounselingSection() {
               />
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )
@@ -463,7 +472,7 @@ function ContactTeaserSection() {
   return (
     <section className="section-space bg-bridge-dark text-white">
       <div className="page-shell">
-        <div className="mx-auto max-w-3xl space-y-10 text-center">
+        <Reveal className="mx-auto max-w-3xl space-y-10 text-center">
           <SectionHeading
             align="center"
             description={siteContent.home.contact.description}
@@ -555,7 +564,7 @@ function ContactTeaserSection() {
               </button>
             </div>
           </form>
-        </div>
+        </Reveal>
       </div>
     </section>
   )
