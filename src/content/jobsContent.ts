@@ -33,7 +33,7 @@ export const jobsContent: JobsContent = {
   eyebrow: 'Jobs',
   title: 'Top Lagos job roles tracked month by month.',
   description:
-    'This page gives LP 103 a simple monthly jobs board for Lagos. Each month keeps 10 ranked roles with demand scores, hiring movement, work mode, and quick notes so the list stays easy to update.',
+    'This page gives LP 103 a simple monthly jobs board for Lagos. Each month keeps 10 roles with sector, work mode, salary band, and a quick note so the list stays easy to update.',
   cadenceLabel: 'Monthly top 10 jobs tracker',
   sampleNotice:
     'The entries below are starter tracking data for the new jobs section. Replace them with your own verified monthly Lagos job data whenever you want.',

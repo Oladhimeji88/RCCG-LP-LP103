@@ -308,41 +308,6 @@ const defaultSiteContent = {
         'RCCG YAYA highlights discipleship, prayer, training, leadership development, collaboration, and even digital church planting as part of the church\'s youth movement.',
       image: picture5,
     },
-    history: {
-      title: 'RCCG History',
-      description:
-        'This timeline is based on the public history shared by RCCG, not inherited placeholder content.',
-      items: [
-        {
-          id: 1,
-          year: '1952',
-          text:
-            'RCCG began as the Glory of God Fellowship in Ebute-Metta, Lagos, and soon became The Redeemed Christian Church of God.',
-          image: picture4,
-        },
-        {
-          id: 2,
-          year: '1973',
-          text:
-            'Pastor E.A. Adeboye joined the church as a young university lecturer, marking the beginning of a new chapter in its expansion.',
-          image: picture5,
-        },
-        {
-          id: 3,
-          year: '1981',
-          text:
-            'Pastor E.A. Adeboye became General Overseer, and the church entered a season of rapid local and global growth.',
-          image: picture6,
-        },
-        {
-          id: 4,
-          year: 'Today',
-          text:
-            'RCCG reports more than 50,000 parishes in 197 countries and territories, with youth movements like YAYA mobilizing discipleship and outreach across generations.',
-          image: picture7,
-        },
-      ],
-    },
     leadership: {
       title: 'Visible Leadership',
       description:

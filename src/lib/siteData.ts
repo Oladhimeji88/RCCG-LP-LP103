@@ -31,13 +31,6 @@ export type SermonCard = {
   link: string
 }
 
-export type HistoryEntry = {
-  id: number
-  year: string
-  text: string
-  image: string
-}
-
 export type Pastor = {
   id: number
   name: string
@@ -128,11 +121,6 @@ export const sundaySermons: SermonCard[] = siteContent.home.focusCards.items.map
   ...item,
   image: resolveImage(item.image),
   link: resolveLink(item.link),
-}))
-
-export const historyEntries: HistoryEntry[] = siteContent.about.history.items.map((item) => ({
-  ...item,
-  image: resolveImage(item.image),
 }))
 
 export const pastorates: Pastor[] = siteContent.about.leadership.items.map((item) => ({
