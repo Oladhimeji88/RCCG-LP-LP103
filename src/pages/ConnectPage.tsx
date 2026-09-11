@@ -1,7 +1,8 @@
+import { Mail, MapPin, Phone } from 'lucide-react'
 import type { FormEvent } from 'react'
 import { useEffect, useState } from 'react'
 import { useManagedSiteContent } from '../lib/contentStore'
-import { asset, connectOptions, quickLinks } from '../lib/siteData'
+import { connectOptions, quickLinks } from '../lib/siteData'
 
 type ConnectFormState = {
   firstName: string
@@ -29,17 +30,17 @@ export function ConnectPage() {
     {
       label: 'Email',
       value: siteContent.brand.email,
-      icon: asset('/icons/email-icon.svg'),
+      icon: Mail,
     },
     {
       label: 'Location',
       value: siteContent.brand.address,
-      icon: asset('/icons/location-pin-icon.svg'),
+      icon: MapPin,
     },
     {
       label: 'Support',
       value: siteContent.brand.supportText,
-      icon: asset('/icons/phone-icon.svg'),
+      icon: Phone,
     },
   ]
 
@@ -78,7 +79,7 @@ export function ConnectPage() {
             <div className="space-y-4 rounded-[3px] border border-white/10 bg-white/5 p-6 backdrop-blur">
               {footerContacts.map((contact) => (
                 <div className="flex items-center gap-3 text-white/80" key={contact.label}>
-                  <img alt="" aria-hidden className="h-5 w-5" src={contact.icon} />
+                  <contact.icon aria-hidden className="h-5 w-5" />
                   <span>{contact.value}</span>
                 </div>
               ))}

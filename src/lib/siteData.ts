@@ -79,7 +79,7 @@ export type GivingOption = {
   cta: string
 }
 
-const siteAssetBase = 'https://www.rccgthebridge.com'
+const siteAssetBase = ''
 type SiteLinkKey = keyof typeof siteContent.links
 
 export const lp103Address = siteContent.brand.address
@@ -158,24 +158,6 @@ export const givingOptions: GivingOption[] = siteContent.giving.options.map((ite
   ...item,
   href: resolveLink(item.href),
 }))
-
-export const footerContacts = [
-  {
-    label: 'Email',
-    value: siteContent.brand.email,
-    icon: asset('/icons/email-icon.svg'),
-  },
-  {
-    label: 'Location',
-    value: siteContent.brand.address,
-    icon: asset('/icons/location-pin-icon.svg'),
-  },
-  {
-    label: 'Support',
-    value: siteContent.brand.supportText,
-    icon: asset('/icons/phone-icon.svg'),
-  },
-]
 
 export const quickLinks: QuickLink[] = siteContent.footer.quickLinks.map((item) => ({
   ...item,
