@@ -190,7 +190,7 @@ export function AboutPage() {
           <SectionHeading
             action={
               <ButtonLink
-                iconSrc={asset('/icons/arrow-icon-9.svg')}
+                icon={ArrowRight}
                 to="/department"
               >
                 {siteContent.about.ministry.ctaLabel}
@@ -243,7 +243,7 @@ export function AboutPage() {
           <div className="flex flex-wrap items-center justify-center gap-4">
             <ButtonLink
               className="justify-center"
-              iconSrc={asset('/icons/arrow-icon-9.svg')}
+              icon={ArrowRight}
               to="/connect"
             >
               {siteContent.about.join.primaryCta}

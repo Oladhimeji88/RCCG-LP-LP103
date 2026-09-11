@@ -16,4 +16,5 @@ export {
   picture5,
   picture6,
   picture7,
+  picture6 as heroImage,
 }

@@ -1,7 +1,8 @@
+import { ArrowRight } from 'lucide-react'
 import { ButtonLink } from '../components/ButtonLink'
 import { SectionHeading } from '../components/SectionHeading'
 import { useManagedSiteContent } from '../lib/contentStore'
-import { asset, ctaLinks } from '../lib/siteData'
+import { ctaLinks } from '../lib/siteData'
 
 export function CounselingPage() {
   const siteContent = useManagedSiteContent()
@@ -21,7 +22,7 @@ export function CounselingPage() {
 
             <div className="flex flex-wrap gap-4">
               <ButtonLink
-                iconSrc={asset('/icons/arrow-icon-9.svg')}
+                icon={ArrowRight}
                 to="/connect"
               >
                 {siteContent.counseling.header.primaryCta}
@@ -117,7 +118,7 @@ export function CounselingPage() {
 
           <div className="flex flex-wrap gap-4">
             <ButtonLink
-              iconSrc={asset('/icons/arrow-icon-9.svg')}
+              icon={ArrowRight}
               to="/connect"
             >
               {siteContent.counseling.finalCta.primaryCta}

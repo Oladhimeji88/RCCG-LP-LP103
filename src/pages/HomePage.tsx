@@ -1,7 +1,9 @@
+import { ArrowRight, Calendar, MapPin } from 'lucide-react'
 import type { FormEvent } from 'react'
 import { useEffect, useState } from 'react'
 import { ButtonLink } from '../components/ButtonLink'
 import { SectionHeading } from '../components/SectionHeading'
+import { heroImage } from '../content/pictureAssets'
 import { siteContent } from '../content/siteContent'
 import { useManagedSiteContent } from '../lib/contentStore'
 import {
