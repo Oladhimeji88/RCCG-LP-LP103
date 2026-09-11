@@ -85,19 +85,21 @@ function AppShell() {
   return (
     <div className="min-h-screen bg-stone-50 text-slate-900">
       {!isAdminRoute ? <SiteHeader /> : null}
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/branches" element={<BranchesPage />} />
-        <Route path="/connect" element={<ConnectPage />} />
-        <Route path="/counseling" element={<CounselingPage />} />
-        <Route path="/counselling" element={<CounselingPage />} />
-        <Route path="/giving" element={<GivingPage />} />
-        <Route path="/jobs" element={<JobsPage />} />
-        <Route path="/lp103-admin/*" element={<AdminPage />} />
-        <Route path="/department" element={<DepartmentsPage />} />
-        <Route path="*" element={<RouteFallback />} />
-      </Routes>
+      <div className="animate-fade-in" key={normalizedPathname}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/branches" element={<BranchesPage />} />
+          <Route path="/connect" element={<ConnectPage />} />
+          <Route path="/counseling" element={<CounselingPage />} />
+          <Route path="/counselling" element={<CounselingPage />} />
+          <Route path="/giving" element={<GivingPage />} />
+          <Route path="/jobs" element={<JobsPage />} />
+          <Route path="/lp103-admin/*" element={<AdminPage />} />
+          <Route path="/department" element={<DepartmentsPage />} />
+          <Route path="*" element={<RouteFallback />} />
+        </Routes>
+      </div>
       {!isAdminRoute ? <SiteFooter /> : null}
     </div>
   )

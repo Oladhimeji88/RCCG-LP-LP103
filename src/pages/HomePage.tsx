@@ -2,6 +2,7 @@ import { ArrowRight, Calendar, MapPin } from 'lucide-react'
 import type { FormEvent } from 'react'
 import { useEffect, useState } from 'react'
 import { ButtonLink } from '../components/ButtonLink'
+import { Reveal } from '../components/Reveal'
 import { SectionHeading } from '../components/SectionHeading'
 import { heroImage } from '../content/pictureAssets'
 import { siteContent } from '../content/siteContent'
@@ -62,11 +63,14 @@ function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-bridge-dark/60 via-bridge-dark/70 to-bridge-dark" />
 
       <div className="page-shell relative flex min-h-screen items-center justify-center py-32 text-center">
-        <div className="space-y-6">
+        <div className="animate-fade-up space-y-6">
           <p className="text-sm font-semibold uppercase tracking-[0.34em] text-white/70">
             {managedSiteContent.home.hero.eyebrow}
           </p>
-          <h1 className="mx-auto max-w-5xl text-4xl font-black uppercase leading-[0.95] sm:text-6xl lg:text-7xl">
+          <h1
+            className="mx-auto max-w-5xl animate-fade-in text-4xl font-black uppercase leading-[0.95] sm:text-6xl lg:text-7xl"
+            key={activePhrase}
+          >
             {homeHeroPhrases[activePhrase]}
           </h1>
           <p className="mx-auto max-w-3xl text-lg leading-8 text-white/75">
@@ -84,24 +88,27 @@ function UpcomingEventsSection() {
   return (
     <section className="section-space bg-stone-50">
       <div className="page-shell space-y-10">
-        <SectionHeading
-          action={
-            <ButtonLink
-              icon={ArrowRight}
-              to="/connect"
-            >
-              {managedSiteContent.home.upcomingEvents.ctaLabel}
-            </ButtonLink>
-          }
-          eyebrow={managedSiteContent.home.upcomingEvents.eyebrow}
-          title={managedSiteContent.home.upcomingEvents.title}
-          description={managedSiteContent.home.upcomingEvents.description}
-        />
+        <Reveal>
+          <SectionHeading
+            action={
+              <ButtonLink
+                icon={ArrowRight}
+                to="/connect"
+              >
+                {managedSiteContent.home.upcomingEvents.ctaLabel}
+              </ButtonLink>
+            }
+            eyebrow={managedSiteContent.home.upcomingEvents.eyebrow}
+            title={managedSiteContent.home.upcomingEvents.title}
+            description={managedSiteContent.home.upcomingEvents.description}
+          />
+        </Reveal>
 
         <div className="grid gap-6 lg:grid-cols-3">
-          {managedSiteContent.home.upcomingEvents.items.map((event) => (
-            <article
+          {managedSiteContent.home.upcomingEvents.items.map((event, index) => (
+            <Reveal
               className="flex h-full flex-col overflow-hidden rounded-[3px] border border-slate-200 bg-white shadow-soft transition hover:-translate-y-1"
+              delay={index * 100}
               key={event.id}
             >
               <img
@@ -136,7 +143,7 @@ function UpcomingEventsSection() {
                   </div>
                 </div>
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
 
@@ -154,15 +161,17 @@ function LivestreamSection() {
   return (
     <section className="bg-black py-10 text-white">
       <div className="page-shell">
-        <SectionHeading
-          align="center"
-          className="mb-8"
-          description={livestream.subtitle}
-          invert
-          title={livestream.title}
-        />
+        <Reveal>
+          <SectionHeading
+            align="center"
+            className="mb-8"
+            description={livestream.subtitle}
+            invert
+            title={livestream.title}
+          />
+        </Reveal>
 
-        <div className="relative overflow-hidden rounded-[2rem]">
+        <Reveal className="relative overflow-hidden rounded-[2rem]">
           <img
             alt="Live stream preview"
             className="aspect-video w-full object-cover"
@@ -195,7 +204,7 @@ function LivestreamSection() {
               </ButtonLink>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

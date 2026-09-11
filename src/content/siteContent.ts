@@ -619,7 +619,6 @@ const defaultSiteContent = {
     ],
   },
   footer: {
-    backgroundImage: picture7,
     quickLinks: [
       {
         label: 'Official RCCG',
