@@ -23,17 +23,8 @@ export function SiteFooter() {
   ]
 
   return (
-    <footer className="relative overflow-hidden bg-bridge-dark text-white">
-      <div className="absolute inset-0 opacity-10">
-        <img
-          alt=""
-          aria-hidden
-          className="h-full w-full object-cover"
-          src={siteContent.footer.backgroundImage}
-        />
-      </div>
-
-      <div className="page-shell relative grid gap-12 py-16 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+    <footer className="bg-bridge-dark text-white">
+      <div className="page-shell grid gap-12 py-16 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
         <div className="space-y-6">
           <img
             alt={`${siteContent.brand.churchName} logo`}
